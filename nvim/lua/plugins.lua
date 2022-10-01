@@ -45,6 +45,8 @@ packer.startup(function(use)
 			})
 		end,
 	})
+	use("ThePrimeagen/harpoon") -- Marks but good
+	use({ "glepnir/dashboard-nvim", event = "BufRead", config = "require('dashboard.rc.lua')" })
 	use("github/copilot.vim")
 	use("windwp/nvim-ts-autotag")
 	use("akinsho/nvim-bufferline.lua")
