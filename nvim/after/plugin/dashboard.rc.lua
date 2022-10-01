@@ -1,5 +1,5 @@
 local db = require("dashboard")
-
+--
 db.header_pad = 8
 db.center_pad = 8
 db.footer_pad = 8

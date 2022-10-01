@@ -27,3 +27,7 @@ keymap.set({ "n", "v" }, "<leader>ca", "<cmd>Lspsaga code_action<CR>", { silent 
 keymap.set("n", "gd", "<Cmd>Lspsaga lsp_finder<CR>", opts)
 keymap.set("i", "<C-k>", "<Cmd>Lspsaga signature_help<CR>", opts)
 keymap.set("n", "gr", "<Cmd>Lspsaga rename<CR>", opts)
+-- Float terminal
+keymap.set("n", "<A-t>", "<cmd>Lspsaga open_floaterm<CR>", { silent = true })
+-- close floaterm
+keymap.set("t", "<A-t>", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })
