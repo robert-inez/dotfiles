@@ -1,12 +1,8 @@
-local home = os.getenv("HOME")
 local db = require("dashboard")
--- macos
--- linux
--- db.preview_command = "ueberzug"
---
-db.header_pad = 5
-db.center_pad = 5
-db.footer_pad = 5
+
+db.header_pad = 8
+db.center_pad = 8
+db.footer_pad = 8
 db.custom_header = {
 	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
 	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
