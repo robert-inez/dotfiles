@@ -47,6 +47,7 @@ packer.startup(function(use)
 	})
 	use("ThePrimeagen/harpoon") -- Marks but, better
 	use("glepnir/dashboard-nvim")
+	use("akinsho/toggleterm.nvim")
 	use("github/copilot.vim")
 	use("windwp/nvim-ts-autotag")
 	use("akinsho/nvim-bufferline.lua")
