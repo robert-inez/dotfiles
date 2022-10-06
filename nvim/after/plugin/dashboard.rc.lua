@@ -1,8 +1,8 @@
 local db = require("dashboard")
 --
-db.header_pad = 8
-db.center_pad = 8
-db.footer_pad = 8
+db.header_pad = 12
+db.center_pad = 6
+db.footer_pad = 6
 db.custom_header = {
 	" ███╗   ██╗ ███████╗ ██████╗  ██╗   ██╗ ██╗ ███╗   ███╗",
 	" ████╗  ██║ ██╔════╝██╔═══██╗ ██║   ██║ ██║ ████╗ ████║",
@@ -18,12 +18,12 @@ db.custom_center = {
 		action = "Telescope oldfiles",
 		shortcut = "SPC f h",
 	},
-	{
+	--[[ {
 		icon = "  ",
 		desc = "Find  File                              ",
-		action = "Telescope find_files find_command=rg,--hidden,--files",
+		action = "Telescope find_files --hidden",
 		shortcut = "SPC f f",
-	},
+	}, ]]
 	{
 		icon = "  ",
 		desc = "File Browser                            ",
