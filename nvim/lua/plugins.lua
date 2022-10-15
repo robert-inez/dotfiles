@@ -13,6 +13,7 @@ packer.startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
+	use("EdenEast/nightfox.nvim")
 	use("nvim-lualine/lualine.nvim") -- Statusline
 	use("nvim-lua/plenary.nvim") -- Common utilities
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
@@ -21,8 +22,8 @@ packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- Completion
 	use("neovim/nvim-lspconfig") -- LSP
 	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-	use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
-	use("MunifTanjim/eslint.nvim")
+	--[[ use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
+	use("MunifTanjim/eslint.nvim") ]]
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("glepnir/lspsaga.nvim") -- LSP UIs
@@ -41,15 +42,9 @@ packer.startup(function(use)
 	use({
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
-		config = function()
-			require("todo-comments").setup({
-				-- your configuration comes here
-				-- or leave it empty to use the default settings
-				-- refer to the configuration section below
-			})
-		end,
 	})
 	use("ThePrimeagen/harpoon") -- Marks but, better
+	-- use("ThePrimeagen/git-worktree.nvim") -- Git worktrees
 	use("glepnir/dashboard-nvim")
 	use("akinsho/toggleterm.nvim")
 	use("github/copilot.vim")

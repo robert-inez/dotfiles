@@ -23,26 +23,29 @@ keymap.set("i", "jk", "<Esc>")
 keymap.set("i", "kj", "<Esc>")
 
 -- Remap space + w to write a buffer
-keymap.set("n", "<Space>w", ":w<Return>")
+keymap.set("n", "<Space>w", "<Cmd>w<CR>")
 
 -- Remap space + q to quit
-keymap.set("n", "<Space>q", ":confirm qa<CR>")
+keymap.set("n", "<Space>q", "<Cmd>confirm qa<CR>")
 
 -- Remap space + c to close current buffer
-keymap.set("n", "<Space>c", ":bd<Return>")
+keymap.set("n", "<Space>c", "<Cmd>confirm bd<CR>")
+keymap.set("n", "<Space>cr", "<Cmd>BufferLineCloseRight<CR>")
+keymap.set("n", "<Space>cl", "<Cmd>BufferLineCloseLeft<CR>")
 
 -- New tab
--- keymap.set('n', 'te', ':tabedit<Return>')
-keymap.set("n", "te", ":tabedit")
+keymap.set("n", "te", "<Cmd>tabedit<CR>", { silent = true })
+keymap.set("n", "tv", "<Cmd>Telescope telescope-tabs list_tabs<CR>", { silent = true })
 -- Split window
-keymap.set("n", "ss", ":split<Return><C-w>w")
-keymap.set("n", "sv", ":vsplit<Return><C-w>w")
+keymap.set("n", "ss", ":split<Return><C-w>w", { silent = true })
+keymap.set("n", "sv", ":vsplit<Return><C-w>w", { silent = true })
+keymap.set("n", "sc", "<C-w>q")
 -- Move window
 keymap.set("n", "<Space>", "<C-w>w")
-keymap.set("", "sh", "<C-w>h")
-keymap.set("", "sk", "<C-w>k")
-keymap.set("", "sj", "<C-w>j")
-keymap.set("", "sl", "<C-w>l")
+keymap.set("", "<C-h>", "<C-w>h")
+keymap.set("", "<C-k>", "<C-w>k")
+keymap.set("", "<C-j>", "<C-w>j")
+keymap.set("", "<C-l>", "<C-w>l")
 
 -- Resize window
 keymap.set("n", "<C-w><left>", "<C-w><")

@@ -1,4 +1,8 @@
-local db = require("dashboard")
+local status, db = pcall(require, "dashboard")
+if not status then
+	return
+end
+
 --
 db.header_pad = 12
 db.center_pad = 6

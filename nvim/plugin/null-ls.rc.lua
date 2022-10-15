@@ -3,7 +3,16 @@ if not status then
 	return
 end
 
-local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
+local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+
+local lsp_formatting = function(bufnr)
+	vim.lsp.buf.format({
+		filter = function(client)
+			return client.name == "null-ls"
+		end,
+		bufnr = bufnr,
+	})
+end
 local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 local code_actions = null_ls.builtins.code_actions
@@ -19,17 +28,19 @@ null_ls.setup({
 		diagnostics.fish,
 	},
 	on_attach = function(client, bufnr)
-		if client.server_capabilities.documentFormattingProvider then
-			vim.api.nvim_clear_autocmds({ buffer = 0, group = augroup_format })
+		if client.supports_method("textDocument/formatting") then
+			vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
 			vim.api.nvim_create_autocmd("BufWritePre", {
-				group = augroup_format,
-				buffer = 0,
-				-- INFO: neovim <0.8 use line 26 instead of 27
-				-- callback = function() vim.lsp.buf.formatting_seq_sync() end
+				group = augroup,
+				buffer = bufnr,
 				callback = function()
-					vim.lsp.buf.format()
+					lsp_formatting(bufnr)
 				end,
 			})
 		end
 	end,
 })
+
+vim.api.nvim_create_user_command("DisableLspFormatting", function()
+	vim.api.nvim_clear_autocmds({ group = augroup, buffer = 0 })
+end, { nargs = 0 })
