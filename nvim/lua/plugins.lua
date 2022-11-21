@@ -8,12 +8,10 @@ vim.cmd([[packadd packer.nvim]])
 
 packer.startup(function(use)
 	use("wbthomason/packer.nvim")
-	use("folke/tokyonight.nvim")
 	use({
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
-	use("EdenEast/nightfox.nvim")
 	use("nvim-lualine/lualine.nvim") -- Statusline
 	use("nvim-lua/plenary.nvim") -- Common utilities
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
@@ -22,12 +20,9 @@ packer.startup(function(use)
 	use("hrsh7th/nvim-cmp") -- Completion
 	use("neovim/nvim-lspconfig") -- LSP
 	use("jose-elias-alvarez/null-ls.nvim") -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-	--[[ use("MunifTanjim/prettier.nvim") -- Prettier plugin for Neovim's built-in LSP client
-	use("MunifTanjim/eslint.nvim") ]]
 	use("williamboman/mason.nvim")
 	use("williamboman/mason-lspconfig.nvim")
 	use("glepnir/lspsaga.nvim") -- LSP UIs
-	use("L3MON4D3/LuaSnip")
 	use({
 		"nvim-treesitter/nvim-treesitter",
 		run = function()
@@ -43,10 +38,9 @@ packer.startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
-	use("ThePrimeagen/harpoon") -- Marks but, better
-	-- use("ThePrimeagen/git-worktree.nvim") -- Git worktrees
+	-- use("ThePrimeagen/harpoon") -- Marks but, better
+	use("ThePrimeagen/vim-be-good") -- Vim practice...get gud
 	use("glepnir/dashboard-nvim")
-	use("akinsho/toggleterm.nvim")
 	use("github/copilot.vim")
 	use("windwp/nvim-ts-autotag")
 	use("akinsho/nvim-bufferline.lua")

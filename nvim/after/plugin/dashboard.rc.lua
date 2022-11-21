@@ -35,6 +35,12 @@ db.custom_center = {
 		shortcut = "SPC f b",
 	},
 	{
+		icon = "  ",
+		desc = "Training                                ",
+		action = "VimBeGood",
+		shortcut = "SPC f d",
+	},
+	{
 		icon = "  ",
 		desc = "Open Personal dotfiles                  ",
 		action = "edit ~/.config/nvim/init.lua",
