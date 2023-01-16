@@ -23,6 +23,7 @@ bufferline.setup({
 	}),
 	options = {
 		mode = "tabs",
+		separator_style = "thin",
 		show_tab_indicators = false,
 		show_buffer_close_icons = false,
 		show_buffer_icons = true,

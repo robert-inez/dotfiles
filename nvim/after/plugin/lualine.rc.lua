@@ -8,7 +8,7 @@ lualine.setup({
 		icons_enabled = true,
 		-- theme = "tokyonight",
 		theme = "catppuccin",
-		-- theme = "nordfox",
+		-- theme = "nord",
 		section_separators = { left = "", right = "" },
 		component_separators = { left = "", right = "" },
 		disabled_filetypes = {

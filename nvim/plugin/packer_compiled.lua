@@ -114,11 +114,6 @@ _G.packer_plugins = {
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
     url = "https://github.com/lewis6991/gitsigns.nvim"
   },
-  harpoon = {
-    loaded = true,
-    path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
   ["lspkind-nvim"] = {
     loaded = true,
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/lspkind-nvim",
@@ -144,10 +139,10 @@ _G.packer_plugins = {
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  ["nui.nvim"] = {
+  ["nord.nvim"] = {
     loaded = true,
-    path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/nui.nvim",
-    url = "https://github.com/MunifTanjim/nui.nvim"
+    path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
   },
   ["null-ls.nvim"] = {
     loaded = true,
@@ -204,11 +199,6 @@ _G.packer_plugins = {
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["pomodoro.nvim"] = {
-    loaded = true,
-    path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/pomodoro.nvim",
-    url = "https://github.com/wthollingsworth/pomodoro.nvim"
-  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/telescope-file-browser.nvim",
@@ -223,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
     url = "https://github.com/folke/todo-comments.nvim"
+  },
+  ["vim-be-good"] = {
+    loaded = true,
+    path = "/Users/robertinez/.local/share/nvim/site/pack/packer/start/vim-be-good",
+    url = "https://github.com/ThePrimeagen/vim-be-good"
   }
 }
 

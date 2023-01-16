@@ -12,6 +12,7 @@ packer.startup(function(use)
 		"catppuccin/nvim",
 		as = "catppuccin",
 	})
+	use("shaunsingh/nord.nvim")
 	use("nvim-lualine/lualine.nvim") -- Statusline
 	use("nvim-lua/plenary.nvim") -- Common utilities
 	use("onsails/lspkind-nvim") -- vscode-like pictograms
@@ -38,7 +39,6 @@ packer.startup(function(use)
 		"folke/todo-comments.nvim",
 		requires = "nvim-lua/plenary.nvim",
 	})
-	-- use("ThePrimeagen/harpoon") -- Marks but, better
 	use("ThePrimeagen/vim-be-good") -- Vim practice...get gud
 	use("glepnir/dashboard-nvim")
 	use("github/copilot.vim")
