@@ -1,17 +1,14 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
-# include colorscheme
-# include colors.conf
-# include palenight.conf
-# include tokyo.conf
-  include gruvbox.conf
+include tokyonight.conf
+#include tokyonight-moon.conf
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
 #: individual font faces and even specify special fonts for particular
 #: characters.
 
-font_family      CaskaydiaCove Nerd Font Book
+font_family      CaskaydiaCove Nerd Font
 bold_font        auto
 italic_font      auto
 bold_italic_font auto
@@ -1195,7 +1192,3 @@ startup_session startup.conf
 
 
 
-# BEGIN_KITTY_THEME
-# Gruvbox Dark
-include current-theme.conf
-# END_KITTY_THEME
