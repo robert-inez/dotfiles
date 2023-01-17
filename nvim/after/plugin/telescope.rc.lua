@@ -18,10 +18,34 @@ telescope.setup({
 				["q"] = actions.close,
 			},
 		},
+		vimgrep_arguments = {
+			"rg",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+		},
+	},
+	pickers = {
+		find_files = {
+			hidden = true,
+			theme = "ivy",
+		},
+		oldfiles = {
+			theme = "ivy",
+		},
+		live_grep = {
+			hidden = true,
+			theme = "ivy",
+		},
 	},
 	extensions = {
 		file_browser = {
-			theme = "dropdown",
+			theme = "ivy",
+			-- theme = "cursor",
+			-- theme = "ivy",
 			-- disables netrw and use telescope-file-browser in its place
 			hijack_netrw = true,
 			mappings = {
@@ -63,7 +87,7 @@ end)
 vim.keymap.set("n", ";;", function()
 	builtin.resume()
 end)
-vim.keymap.set("n", ";e", function()
+vim.keymap.set("n", ";d", function()
 	builtin.diagnostics()
 end)
 vim.keymap.set("n", "sf", function()
@@ -71,10 +95,9 @@ vim.keymap.set("n", "sf", function()
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
 		respect_gitignore = false,
-		previewer = false,
 		hidden = true,
 		grouped = true,
 		initial_mode = "normal",
-		layout_config = { height = 40 },
+		-- layout_config = { height = 40 },
 	})
 end)
