@@ -22,10 +22,8 @@ null_ls.setup({
 	sources = {
 		formatting.prettierd,
 		formatting.eslint_d,
-		formatting.stylua,
 		diagnostics.eslint_d,
 		code_actions.eslint_d,
-		diagnostics.fish,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

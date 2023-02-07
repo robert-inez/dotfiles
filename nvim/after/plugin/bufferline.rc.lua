@@ -4,6 +4,7 @@ if not status then
 end
 
 local mocha = require("catppuccin.palettes").get_palette("mocha")
+local macchiato = require("catppuccin.palettes").get_palette("macchiato")
 -- TokyoNight comment out highlights
 -- Catppuccin & Tokyonight Bufferline setup
 bufferline.setup({
@@ -15,6 +16,9 @@ bufferline.setup({
 			},
 			mocha = {
 				background = { fg = mocha.text },
+			},
+			macchiato = {
+				background = { fg = macchiato.text },
 			},
 			latte = {
 				background = { fg = "#000000" },

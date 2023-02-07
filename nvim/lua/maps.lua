@@ -17,10 +17,8 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 -- Save with root permission (not working for now)
 --vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
 
--- Set jj jk kj to escape
+-- Set jj to escape
 keymap.set("i", "jj", "<Esc>")
-keymap.set("i", "jk", "<Esc>")
-keymap.set("i", "kj", "<Esc>")
 
 -- Remap space + w to write a buffer
 keymap.set("n", "<Space>w", "<Cmd>w<CR>")
