@@ -1,25 +1,25 @@
 require('lazy').setup({
-  "neovim/nvim-lspconfig",           -- LSP
+  "neovim/nvim-lspconfig", -- LSP
   "jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-  "williamboman/mason.nvim",         -- Language server installer
+  "williamboman/mason.nvim", -- Language server installer
   "williamboman/mason-lspconfig.nvim",
-  { 'echasnovski/mini.nvim', version = '*' },
-  {
-    "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
-  },
-  "glepnir/lspsaga.nvim",         -- LSP UIs
+  { 'echasnovski/mini.nvim', branch = 'stable' },
+  {"nvim-treesitter/nvim-treesitter",
+    buil9;5uuu = function()
+      dependencies("nvim-treesitter.install").update({ with_sync = true })
+    end,},
+  "glepnir/lspsaga.nvim", -- LSP UIs
   "kyazdani42/nvim-web-devicons", -- File icons
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
   "akinsho/nvim-bufferline.lua",
-  "nvim-lualine/lualine.nvim", -- Statusline
   {
     "catppuccin/nvim",
     name = "catppuccin",
   },
 
   "nvim-lua/plenary.nvim", -- Common utilities
-  "onsails/lspkind-nvim",  -- vscode-like pictograms
+  "onsails/lspkind-nvim", -- vscode-like pictograms
   {
     'kkoomen/vim-doge',
     build = ':call doge#install(,'
@@ -47,4 +47,5 @@ require('lazy').setup({
   -- "windwp/nvim-autopairs")
   -- "github/copilot.vim")
   -- "windwp/nvim-ts-autotag")
+  -- "nvim-lualine/lualine.nvim") -- Statusline
 })

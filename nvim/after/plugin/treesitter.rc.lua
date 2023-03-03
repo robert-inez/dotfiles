@@ -6,6 +6,7 @@ end
 ts.setup({
   highlight = {
     enable = true,
+    additional_vim_regex_highlighting = false,
     disable = {},
   },
   indent = {
@@ -14,13 +15,10 @@ ts.setup({
   },
   ensure_installed = {
     "tsx",
-    "javascript",
-    "typescript",
     "graphql",
     "json",
     "css",
     "html",
-    "lua",
     "toml",
     "yaml",
   },
