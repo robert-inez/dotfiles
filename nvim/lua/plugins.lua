@@ -3,12 +3,12 @@ require('lazy').setup({
   "jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
   "williamboman/mason.nvim",         -- Language server installer
   "williamboman/mason-lspconfig.nvim",
+  'WhoIsSethDaniel/mason-tool-installer.nvim',
   { 'echasnovski/mini.nvim', version = '*' },
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
   },
-  "glepnir/lspsaga.nvim",         -- LSP UIs
-  "kyazdani42/nvim-web-devicons", -- File icons
+  "glepnir/lspsaga.nvim", -- LSP UIs
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
   "akinsho/nvim-bufferline.lua",
@@ -17,9 +17,8 @@ require('lazy').setup({
     "catppuccin/nvim",
     name = "catppuccin",
   },
-
+  'folke/tokyonight.nvim',
   "nvim-lua/plenary.nvim", -- Common utilities
-  "onsails/lspkind-nvim",  -- vscode-like pictograms
   {
     'kkoomen/vim-doge',
     build = ':call doge#install(,'
@@ -33,10 +32,11 @@ require('lazy').setup({
   "ThePrimeagen/harpoon",
   "numToStr/Comment.nvim",
   "lewis6991/gitsigns.nvim",
-  "dinhhuy258/git.nvim", -- For git blame & browse
-
+  "dinhhuy258/git.nvim",          -- For git blame & browse
+  "kyazdani42/nvim-web-devicons", -- File icons
   -- Removed the following plugins in effort to use mini.nvim in all places applicable
   -- "hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
+  -- "onsails/lspkind-nvim",  -- vscode-like pictograms
   -- "hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP
   -- "hrsh7th/nvim-cmp") -- Completion
   -- {

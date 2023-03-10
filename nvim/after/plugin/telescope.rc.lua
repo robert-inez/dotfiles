@@ -32,18 +32,23 @@ telescope.setup({
     find_files = {
       hidden = true,
       theme = "ivy",
+      -- theme = "dropdown",
     },
     oldfiles = {
       theme = "ivy",
+      hidden = true,
+      -- theme = "dropdown",
     },
     live_grep = {
       hidden = true,
       theme = "ivy",
+      -- theme = "dropdown",
     },
   },
   extensions = {
     file_browser = {
       theme = "ivy",
+      -- theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
       mappings = {
@@ -101,6 +106,5 @@ vim.keymap.set("n", "sf", function()
     hidden = true,
     grouped = true,
     initial_mode = "normal",
-    -- layout_config = { height = 40, width = 100 },
   })
 end)

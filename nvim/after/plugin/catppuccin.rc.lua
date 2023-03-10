@@ -70,4 +70,4 @@ require("catppuccin").setup({
 })
 
 -- set colorscheme after options
-vim.cmd("colorscheme catppuccin")
+-- vim.cmd("colorscheme catppuccin")

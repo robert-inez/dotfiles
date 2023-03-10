@@ -15,6 +15,8 @@ ts.setup({
   },
   ensure_installed = {
     "tsx",
+    "javascript",
+    "typescript",
     "graphql",
     "json",
     "css",
