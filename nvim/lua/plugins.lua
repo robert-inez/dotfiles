@@ -8,7 +8,6 @@ require('lazy').setup({
   {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate"
   },
-  "glepnir/lspsaga.nvim", -- LSP UIs
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-file-browser.nvim",
   "akinsho/nvim-bufferline.lua",
@@ -21,7 +20,7 @@ require('lazy').setup({
   "nvim-lua/plenary.nvim", -- Common utilities
   {
     'kkoomen/vim-doge',
-    build = ':call doge#install(,'
+    build = ':call doge#install()'
   },
   "norcalli/nvim-colorizer.lua",
   {
@@ -35,6 +34,7 @@ require('lazy').setup({
   "dinhhuy258/git.nvim",          -- For git blame & browse
   "kyazdani42/nvim-web-devicons", -- File icons
   -- Removed the following plugins in effort to use mini.nvim in all places applicable
+  -- "glepnir/lspsaga.nvim", -- LSP UIs
   -- "hrsh7th/cmp-buffer") -- nvim-cmp source for buffer words
   -- "onsails/lspkind-nvim",  -- vscode-like pictograms
   -- "hrsh7th/cmp-nvim-lsp") -- nvim-cmp source for neovim's built-in LSP

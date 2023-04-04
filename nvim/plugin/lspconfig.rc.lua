@@ -5,6 +5,7 @@ if not status then
   return
 end
 
+local keymap = vim.keymap
 local protocol = require("vim.lsp.protocol")
 
 local augroup_format = vim.api.nvim_create_augroup("Format", { clear = true })
@@ -37,10 +38,27 @@ local on_attach = function(client, bufnr)
   local opts = { noremap = true, silent = true }
 
   -- See `:help vim.lsp.*` for documentation on any of the below functions
-  buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+  -- buf_set_keymap("n", "gD", "<Cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   --buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
+  -- buf_set_keymap("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", opts)
   --buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+  keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+  keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+  keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+  keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+  keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+  keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+  keymap.set('n', '<space>wl', function()
+    print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+  end, opts)
+  keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+  keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+  keymap.set('n', '<space>ca', vim.lsp.buf.code_action, opts)
+  keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+  keymap.set('n', '<space>f', function()
+    vim.lsp.buf.format { async = true }
+  end, opts)
 end
 
 protocol.CompletionItemKind = {
@@ -102,7 +120,6 @@ nvim_lsp.lua_ls.setup {
         -- Get the language server to recognize the `vim` global
         globals = { 'vim' },
       },
-
       workspace = {
         -- Make the server aware of Neovim runtime files
         library = vim.api.nvim_get_runtime_file("", true),

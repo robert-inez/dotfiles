@@ -14,9 +14,6 @@ keymap.set("n", "-", "<C-x>")
 -- Select all
 keymap.set("n", "<C-a>", "gg<S-v>G")
 
--- Save with root permission (not working for now)
---vim.api.nvim_create_user_command('W', 'w !sudo tee > /dev/null %', {})
-
 -- Set jj to escape
 keymap.set("i", "jj", "<Esc>")
 
@@ -33,7 +30,6 @@ keymap.set("n", "<Space>cl", "<Cmd>BufferLineCloseLeft<CR>")
 
 -- New tab
 keymap.set("n", "te", "<Cmd>tabedit<CR>", { silent = true })
-keymap.set("n", "tv", "<Cmd>Telescope telescope-tabs list_tabs<CR>", { silent = true })
 -- Split window
 keymap.set("n", "ss", ":split<Return><C-w>w", { silent = true })
 keymap.set("n", "sv", ":vsplit<Return><C-w>w", { silent = true })

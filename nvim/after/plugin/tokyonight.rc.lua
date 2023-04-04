@@ -37,4 +37,4 @@ tokyonight.setup({
   end,
 })
 -- set colorscheme after options
-vim.cmd("colorscheme tokyonight")
+-- vim.cmd("colorscheme tokyonight")
