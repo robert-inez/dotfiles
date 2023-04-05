@@ -28,6 +28,7 @@ ZSH_THEME=""
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle :prompt:pure:git:branch color '#94e2d5'
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -65,7 +66,7 @@ ZSH_THEME=""
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
-
+#
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -87,6 +88,10 @@ alias gpl='git pull'
 alias gps='git push'
 alias gpsu='git push -u origin'
 alias gd='git diff --color main..HEAD | less -RN'
+alias gwa='git worktree add'
+alias gws='cd $(git worktree list | grep -i)'
+alias gwr='git worktree remove'
+alias gwls='git worktree list'
 
 ## NODE ##
 
@@ -111,7 +116,10 @@ alias yss='yarn && yarn start:standalone'
 alias gwiam='cd ~/IB/git/cenari/gw-apollo && IAM_URL=http://localhost:3334 ELASTIC_APM_LOG_LEVEL=off yarn dev'
 alias gwfile='cd ~/IB/git/cenari/gw-apollo && IAM_URL=http://localhost:3334 ELASTIC_APM_LOG_LEVEL=off FILE_URL=http://localhost:9007 yarn dev'
 alias gwfilecon='cd ~/IB/git/cenari/gw-apollo && IAM_URL=http://localhost:3334 ELASTIC_APM_LOG_LEVEL=off FILE_URL=http://localhost:9007 CONTINUITY_URL=http://localhost:4892 yarn dev'
+alias gwfileres='cd ~/IB/git/cenari/gw-apollo && IAM_URL=http://localhost:3334 ELASTIC_APM_LOG_LEVEL=off FILE_URL=http://localhost:9007 RESOURCE_URL=http://localhost:9010 yarn dev'
 alias gwcon='cd ~/IB/git/cenari/gw-apollo && yarn && IAM_URL=http://localhost:3334 CONTINUITY_URL=http://localhost:4892 ELASTIC_APM_LOG_LEVEL=off yarn dev'
+alias gwplan='cd ~/IB/git/cenari/gw-apollo && yarn && IAM_URL=http://localhost:3334 CONTINUITY_URL=http://localhost:4892 PLAN_URL=http://localhost:6969 ELASTIC_APM_LOG_LEVEL=off yarn dev'
+alias gwintel='cd ~/IB/git/cenari/gw-apollo && yarn && IAM_URL=http://localhost:3334 CONTINUITY_URL=http://localhost:4892 INTELLIGENCE_URL=http://localhost:9101 ELASTIC_APM_LOG_LEVEL=off yarn dev'
 alias ibdr='cd ~/IB/git/cenari/darwin-root/ && API_URL=http://localhost:1234 ELASTIC_APM_LOG_LEVEL=off yarn dev'
 alias iam='cd ~/IB/git/cenari/msvc-iam/'
 alias mfepep='cd ~/IB/git/cenari/mfe-people-react/'
@@ -120,9 +128,18 @@ alias conmfe='cd ~/IB/git/cenari/mfe-continuity-react'
 alias conmsvc='cd ~/IB/git/cenari/msvc-continuity'
 alias sterniam="stern -n evolve-dev msvc-iam 'kube-probe' -e elastic-apm-node"
 alias sterncon="stern -n evolve-dev msvc-continuity 'kube-probe' -e elastic-apm-node" 
+alias sternint="stern -n evolve-dev msvc-intelligence 'kube-probe' -e elastic-apm-node" 
 alias sternfile="stern -n evolve-dev msvc-file 'kube-probe' -e elastic-apm-node" 
+alias sternplan="stern -n evolve-dev msvc-plan 'kube-probe' -e elastic-apm-node" 
+alias sternsend="stern -n evolve-dev msvc-sendigo 'kube-probe' -e elastic-apm-node" 
+alias sternplanstage="stern -n evolve-staging msvc-plan 'kube-probe' -e elastic-apm-node" 
 alias ibtun='kubectl -n evolve-dev port-forward rds-port-forward-postgres-5432 4444:5432'
 alias ibtun2='kubectl -n dev-pulsar port-forward svc/dev-pulsar-proxy 6650:6650'
+alias ibtun3='kubectl -n evolve-dev port-forward nep-port-forward-dev 8182:8182'
+alias gremstart='~/IB/git/gremlin-server/bin/gremlin-server.sh start'
+alias gremstop='~/IB/git/gremlin-server/bin/gremlin-server.sh stop'
+alias gremlogs='cat ~/IB/git/gremlin-server/logs/gremlin.log'
+alias gremcon='~/IB/git/gremlin-console/bin/gremlin.sh'
 
 ## KITTY ##
 
@@ -131,8 +148,8 @@ alias kt-msvc='kitty --session ~/.config/kitty/msvc.conf'
 ## Kubernetes ##
 
 alias k='kubectl'
-alias kgdev='kubectl -n evolve-dev get pods'
-alias kdescdev='kubectl -n evolve-dev describe pod'
+alias kget='kubectl -n evolve-dev get pods'
+alias kdesc='kubectl -n evolve-dev describe pod'
 
 ## MISC ##
 
@@ -141,7 +158,6 @@ alias rmf='rm -rf'
 alias pgs='pg_ctl -D /usr/local/var/postgres start'
 alias de='direnv allow'
 alias lw='xattr -d com.apple.quarantine /Applications/LibreWolf.app'
-alias vim='nvim'
 alias c='clear'
 alias bump='npm version patch && git add package.json && git commit'
 alias utils='yarn add @infiniteblue/msvc-utils@latest'
@@ -181,4 +197,7 @@ export NVM_DIR="$HOME/.nvm"
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 eval "$(pyenv init --path)"
-eval "$(starship init zsh)"
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+autoload -U promptinit; promptinit
+prompt pure
+# eval "$(starship init zsh)"
