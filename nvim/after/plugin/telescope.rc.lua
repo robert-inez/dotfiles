@@ -34,6 +34,9 @@ telescope.setup({
       theme = "ivy",
       -- theme = "dropdown",
     },
+    buffers = {
+      theme = "ivy",
+    },
     oldfiles = {
       theme = "ivy",
       hidden = true,
@@ -86,7 +89,7 @@ end)
 vim.keymap.set("n", ";r", function()
   builtin.live_grep()
 end)
-vim.keymap.set("n", "\\\\", function()
+vim.keymap.set("n", "fb", function()
   builtin.buffers()
 end)
 vim.keymap.set("n", ";t", function()
