@@ -1,7 +1,7 @@
 require('lazy').setup({
-	"neovim/nvim-lspconfig",          -- LSP
+	"neovim/nvim-lspconfig",           -- LSP
 	"jose-elias-alvarez/null-ls.nvim", -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
-	"williamboman/mason.nvim",        -- Language server installer
+	"williamboman/mason.nvim",         -- Language server installer
 	"williamboman/mason-lspconfig.nvim",
 	'WhoIsSethDaniel/mason-tool-installer.nvim',
 	{ 'echasnovski/mini.nvim', version = '*' },
@@ -16,7 +16,6 @@ require('lazy').setup({
 		"catppuccin/nvim",
 		name = "catppuccin",
 	},
-	"rebelot/kanagawa.nvim",
 	'folke/tokyonight.nvim',
 	"nvim-lua/plenary.nvim", -- Common utilities
 	{
@@ -32,7 +31,7 @@ require('lazy').setup({
 	"ThePrimeagen/harpoon",
 	"numToStr/Comment.nvim",
 	"lewis6991/gitsigns.nvim",
-	"dinhhuy258/git.nvim",         -- For git blame & browse
+	"dinhhuy258/git.nvim",          -- For git blame & browse
 	"kyazdani42/nvim-web-devicons", -- File icons
 	-- Removed the following plugins in effort to use mini.nvim in all places applicable
 	-- "glepnir/lspsaga.nvim", -- LSP UIs

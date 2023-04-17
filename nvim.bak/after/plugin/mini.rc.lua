@@ -10,7 +10,6 @@ if (not status3) then return end
 local status4, bracketed = pcall(require, 'mini.bracketed')
 if (not status4) then return end
 
-
 pairs.setup()
 surround.setup()
 completion.setup()
