@@ -18,10 +18,10 @@ keymap.set("n", "<C-a>", "gg<S-v>G")
 keymap.set("i", "jj", "<Esc>")
 
 -- Remap space + w to write a buffer
--- keymap.set("n", "<Space>w", "<Cmd>w<CR>")
+keymap.set("n", "<Space>w", "<Cmd>confirm w<CR>")
 
 -- Remap space + q to quit
-keymap.set("n", "<Space>q", "<Cmd>confirm qa<CR>")
+keymap.set("n", "<Space>q", "<Cmd>confirm q<CR>")
 
 -- Remap buffer stuffs
 keymap.set("n", "<leader>c", "<Cmd>confirm bd<CR>")
