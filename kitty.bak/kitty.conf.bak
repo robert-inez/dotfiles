@@ -1,10 +1,7 @@
 # vim:fileencoding=utf-8:ft=conf:foldmethod=marker
 
-# include Catppuccin-Mocha.conf
-include rose-pine-moon.conf
-# include kanagawa-wave.conf
-# include tokyonight-night.conf
-# include Catppuccin-Macchiato.conf
+include tokyonight.conf
+#include tokyonight-moon.conf
 #: Fonts {{{
 
 #: kitty has very powerful font management. You can configure
@@ -28,7 +25,7 @@ bold_italic_font auto
 #:     italic_font      Operator Mono Book Italic
 #:     bold_italic_font Operator Mono Medium Italic
 
-font_size 13.0
+font_size 14.0
 
 #: Font size (in pts)
 
@@ -176,7 +173,7 @@ cursor_blink_interval -1
 
 #: Scrollback {{{
 
-scrollback_lines 20000
+scrollback_lines 2000
 
 #: Number of lines of history to keep in memory for scrolling back.
 #: Memory is allocated on demand. Negative numbers are (effectively)
@@ -559,7 +556,7 @@ window_padding_width 10.0
 
 #: The foreground and background colors
 
-background_opacity 1
+background_opacity .95
 
 #: The opacity of the background. A number between 0 and 1, where 1 is
 #: opaque and 0 is fully transparent.  This will only work if
@@ -1187,8 +1184,6 @@ startup_session startup.conf
 #: }}}
 
 # }}}
-
-
 
 
 

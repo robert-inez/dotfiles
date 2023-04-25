@@ -28,6 +28,7 @@ ZSH_THEME=""
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
 # zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle :prompt:pure:git:branch color '#94e2d5'
 
 # Uncomment the following line to change how often to auto-update (in days).
 # zstyle ':omz:update' frequency 13
@@ -163,10 +164,7 @@ alias utils='yarn add @infiniteblue/msvc-utils@latest'
 alias ob='open /Applications/Obsidian.app'
 alias ls='exa -la --icons'
 alias src='exec zsh'
-alias google='web_search duckduckgo'
-alias stack='web_search stackoverflow'
-alias pulsarlogs='docker compose logs pulsar-local -ft'
-alias pulsarrestart='docker compose rm -sv pulsar-local && docker rmi cenari-local-pulsar-local && docker volume rm cenari-local_pulsarconf && docker volume rm cenari-local_pulsardata && docker compose up -d'
+alias google='web_search google'
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
@@ -199,9 +197,7 @@ export NVM_DIR="$HOME/.nvm"
     [ -s "$(brew --prefix)/opt/nvm/nvm.sh" ] && . "$(brew --prefix)/opt/nvm/nvm.sh" # This loads nvm
     [ -s "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" ] && . "$(brew --prefix)/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 eval "$(pyenv init --path)"
-eval "$(fnm env --use-on-cd)"
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 autoload -U promptinit; promptinit
 prompt pure
 # eval "$(starship init zsh)"
-export PATH=$PATH:/Users/robertinez/.spicetify
