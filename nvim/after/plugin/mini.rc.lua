@@ -13,8 +13,20 @@ if (not status4) then return end
 local status5, statusline = pcall(require, 'mini.statusline')
 if (not status5) then return end
 
+local status6, tabline = pcall(require, 'mini.tabline')
+if (not status6) then return end
+
+local status7, fuzzy = pcall(require, 'mini.fuzzy')
+if (not status7) then return end
+
+local status8, comment = pcall(require, 'mini.comment')
+if (not status8) then return end
+
 pairs.setup()
 surround.setup()
 completion.setup()
 bracketed.setup()
 statusline.setup()
+tabline.setup()
+fuzzy.setup()
+comment.setup()

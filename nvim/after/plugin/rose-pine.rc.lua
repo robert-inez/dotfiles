@@ -42,11 +42,10 @@ rose_pine.setup({
 		ColorColumn = { bg = 'rose' },
 		-- Blend colours against the "base" background
 		CursorLine = { bg = 'foam', blend = 10 },
-		-- StatusLine = { fg = 'foam', bg = 'foam', blend = 10 },
 		MiniStatuslineModeNormal = { bg = 'foam', fg = 'base' },
 		MiniStatuslineModeInsert = { bg = 'love', fg = 'base' },
 		MiniStatuslineModeVisual = { bg = 'iris', fg = 'base' },
-		MiniStatuslineModeCommand = { bg = 'gold', fg = 'base' }
+		MiniStatuslineModeCommand = { bg = 'gold', fg = 'base' },
 	}
 })
 
