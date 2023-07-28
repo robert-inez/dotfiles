@@ -1,43 +1,28 @@
-local status, formatter =
-  pcall(
-    require,
-    'formatter'
-  )
-if
-  not status
-then
+local status, formatter = pcall(require, 'formatter')
+if not status then
   return
 end
 
 -- Utilities for creating configurations
-local util =
-  require(
-    'formatter.util'
-  )
+local util = require('formatter.util')
 
-local function prettierd(
-)
+local function prettierd()
   return {
     exe = 'prettierd',
     args = {
-      util.escape_path(
-        util.get_current_buffer_file_path()
-      ),
+      util.escape_path(util.get_current_buffer_file_path()),
     },
     stdin = true,
   }
 end
 
-local function eslint_d(
-)
+local function eslint_d()
   return {
     exe = 'eslint_d',
     args = {
       '--stdin',
       '--stdin-filename',
-      util.escape_path(
-        util.get_current_buffer_file_path()
-      ),
+      util.escape_path(util.get_current_buffer_file_path()),
       '--fix-to-stdout',
     },
     stdin = true,
@@ -45,8 +30,7 @@ local function eslint_d(
   }
 end
 
-local function stylua(
-)
+local function stylua()
   return {
     exe = 'stylua',
     args = {
@@ -58,8 +42,6 @@ local function stylua(
       'AutoPreferSingle',
       '--indent-width',
       vim.bo.tabstop,
-      '--column-width',
-      vim.bo.textwidth,
       '-',
     },
     stdin = true,
@@ -142,17 +124,13 @@ formatter.setup({
       -- "formatter.filetypes.any" defines default configurations for any
       -- filetype
       --
-      require(
-        'formatter.filetypes.any'
-      ).remove_trailing_whitespace,
+      require('formatter.filetypes.any').remove_trailing_whitespace,
     },
   },
 })
-vim.cmd(
-  [[
+vim.cmd([[
 augroup FormatOnSave
     autocmd!
     autocmd BufWritePost * FormatWrite
 augroup END
-]]
-)
+]])
