@@ -6,9 +6,9 @@ vim.opt.fileencoding = 'utf-8'
 
 vim.g.netrw_fastbrowse = 0
 vim.opt.smartindent = true
-vim.opt.autoindent = false
+vim.opt.autoindent = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -16,11 +16,13 @@ vim.opt.termguicolors = true
 vim.opt.backup = false
 vim.opt.showcmd = true
 
+vim.opt.cmdheight = 1
 vim.opt.laststatus = 2
 vim.opt.showmode = false
+
 vim.opt.relativenumber = true
 vim.opt.expandtab = false
-vim.opt.scrolloff = 8
+vim.opt.scrolloff = 10
 vim.opt.signcolumn = 'yes'
 vim.opt.updatetime = 50
 vim.opt.shell = 'zsh'
@@ -30,10 +32,10 @@ vim.opt.ignorecase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.bo.tabstop = 4
-vim.opt.expandtab = true
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.bo.tabstop = 2
+vim.opt.expandtab = false
 
 vim.opt.wrap = false --Wrap lines
 vim.opt.backspace = { 'start', 'eol', 'indent' }
