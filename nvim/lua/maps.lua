@@ -36,6 +36,14 @@ keymap.set(
   '<Esc>'
 )
 
+
+keymap.set(
+  'n',
+  '<leader>sf',
+  '<Cmd>Explore<CR>'
+)
+
+
 -- Remap space + w to write a buffer
 keymap.set(
   'n',

@@ -1,6 +1,4 @@
-require(
-  'lazy'
-).setup({
+require('lazy').setup({
   'neovim/nvim-lspconfig', -- LSP
   'mhartington/formatter.nvim',
   'williamboman/mason.nvim', -- Language server installer
@@ -9,7 +7,6 @@ require(
   'nvim-lua/plenary.nvim', -- Common utilities
   'norcalli/nvim-colorizer.lua',
   'nvim-telescope/telescope.nvim',
-  'nvim-telescope/telescope-file-browser.nvim',
   'windwp/nvim-ts-autotag',
   'ThePrimeagen/harpoon',
   'lewis6991/gitsigns.nvim',
