@@ -35,7 +35,7 @@ end
 
 pairs.setup()
 surround.setup()
-completion.setup()
+-- completion.setup()
 bracketed.setup()
 statusline.setup()
 comment.setup()
