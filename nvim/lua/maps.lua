@@ -15,14 +15,14 @@ keymap.set('n', '<C-a>', 'gg<S-v>G')
 keymap.set('i', 'jj', '<Esc>')
 
 -- Remap space + w to write a buffer
-keymap.set('n', '<leader>w', '<Cmd>confirm w<CR>')
+keymap.set('n', '<leader>w', '<Cmd>FormatWrite<CR>')
 
 -- Remap space + q to quit
 keymap.set('n', '<leader>q', '<Cmd>confirm q<CR>')
 
 keymap.set('n', '<leader>f', '<Cmd>Format<CR>')
 
-keymap.set('n', '<leader>F', '<Cmd>FormatWrite<CR>')
+-- keymap.set('n', '<leader>F', '<Cmd>FormatWrite<CR>')
 
 -- Remap buffer stuffs
 keymap.set('n', '<leader>cb', '<Cmd>confirm bd<CR>')

@@ -8,12 +8,20 @@ if not status2 then
   return
 end
 
+local status3, lspconfig = pcall(require, 'lspconfig')
+if not status3 then
+  return
+end
+
 local keymap = vim.keymap
 
 local lsp = lspzero.preset('recommended')
 
 lsp.ensure_installed({
   'tsserver',
+  'eslint',
+	'graphql',
+	'marksman'
   -- 'rust_analyzer'
 })
 
@@ -89,7 +97,12 @@ lsp.on_attach(function(client, bufnr)
   end, opts)
 end)
 
-require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
+lspconfig.eslint.setup({})
+lspconfig.graphql.setup({})
+lspconfig.tsserver.setup({})
+lspconfig.marksman.setup({})
+
 
 lsp.setup()
 

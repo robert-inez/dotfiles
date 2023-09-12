@@ -11,7 +11,7 @@ kanagawa.setup({
   functionStyle = {},
   keywordStyle = { italic = true },
   statementStyle = { bold = true },
-  typeStyle = {},
+  typeStyle = { bold = true },
   transparent = false, -- do not set background color
   dimInactive = true, -- dim inactive window `:h hl-NormalNC`
   terminalColors = true, -- define vim.g.terminal_color_{0,17}
@@ -56,4 +56,4 @@ kanagawa.setup({
 })
 
 -- setup must be called before loading
-vim.cmd('colorscheme kanagawa')
+vim.cmd('colorscheme kanagawa-wave')

@@ -1,15 +1,22 @@
-require('lazy').setup({
-  'mhartington/formatter.nvim',
-  'WhoIsSethDaniel/mason-tool-installer.nvim',
-  -- 'nvim-lua/plenary.nvim', -- Common utilities
-  'norcalli/nvim-colorizer.lua',
-  'nvim-telescope/telescope.nvim',
-  'windwp/nvim-ts-autotag',
-  'ThePrimeagen/harpoon',
-  'lewis6991/gitsigns.nvim',
-  'rebelot/kanagawa.nvim',
-  'dinhhuy258/git.nvim', -- For git blame & browse
-  'kyazdani42/nvim-web-devicons', -- File icons
+local plugins = {
+  { 'mhartington/formatter.nvim' },
+  { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
+  { 'norcalli/nvim-colorizer.lua' },
+  { 'nvim-telescope/telescope.nvim' },
+  { 'windwp/nvim-ts-autotag' },
+  { 'ThePrimeagen/harpoon' },
+  { 'lewis6991/gitsigns.nvim' },
+  {
+    'rebelot/kanagawa.nvim',
+    lazy = false,
+    priority = 1000,
+  },
+  { 'dinhhuy258/git.nvim' }, -- For git blame & browse
+  { 'kyazdani42/nvim-web-devicons' }, -- File icons
+  {
+    'nvim-telescope/telescope-file-browser.nvim',
+    dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  },
   {
     'echasnovski/mini.nvim',
     version = '*',
@@ -37,14 +44,10 @@ require('lazy').setup({
       { 'L3MON4D3/LuaSnip' }, -- Required
     },
   },
-
-  -- 'neovim/nvim-lspconfig', -- LSP
-  -- 'williamboman/mason.nvim', -- Language server installer
-  -- 'williamboman/mason-lspconfig.nvim',
-  -- 'nvim-telescope/telescope-file-browser.nvim',
-  -- dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   -- {
   --   'rose-pine/neovim',
   --   name = 'rose-pine',
   -- },
-})
+}
+local opts = {}
+require('lazy').setup(plugins, opts)
