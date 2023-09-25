@@ -1,0 +1,19 @@
+{
+  "minimal-style@@bg1@@dark": "#1E1E2E",
+  "minimal-style@@bg2@@dark": "#1E1E2E",
+  "minimal-style@@tx1@@dark": "#CDD6F4",
+  "minimal-style@@base@@dark": "#1E1E2E",
+  "minimal-style@@bg3@@dark": "#CBA6F7",
+  "minimal-style@@color-red@@dark": "#F38BA8",
+  "minimal-style@@color-orange@@dark": "#FAB387",
+  "minimal-style@@color-yellow@@dark": "#F9E2AF",
+  "minimal-style@@color-green@@dark": "#A6E3A1",
+  "minimal-style@@color-cyan@@dark": "#94E2D5",
+  "minimal-style@@color-blue@@dark": "#89B4FA",
+  "minimal-style@@color-purple@@dark": "#B4BEFE",
+  "minimal-style@@color-pink@@dark": "#F5C2E7",
+  "minimal-style@@ax2@@dark": "#CBA6F7",
+  "minimal-style@@ax3@@dark": "#CBA6F7",
+  "minimal-style@@sp1@@dark": "#1E1E2E",
+  "minimal-style@@ax1@@dark": "#CBA6F7"
+}
