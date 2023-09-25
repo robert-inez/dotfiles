@@ -41,13 +41,6 @@ vim.opt.backspace = { 'start', 'eol', 'indent' }
 vim.opt.path:append({ '**' }) -- Finding files - Search down into subfolders
 vim.opt.wildignore:append({ '*/node_modules/*' })
 
--- vim.g.netrw_fastbrowse = 0
--- vim.g.netrw_browse_split = 0
--- vim.g.netrw_banner = 0
--- vim.g.netrw_winsize = 30
--- vim.g.netrw_keepdir = 0
--- vim.g.netrw_localcopydircmd = 'cp -r'
-
 vim.opt.nu = true
 
 -- Undercurl

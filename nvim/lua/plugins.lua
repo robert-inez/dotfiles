@@ -5,12 +5,18 @@ local plugins = {
   { 'nvim-telescope/telescope.nvim' },
   { 'windwp/nvim-ts-autotag' },
   { 'ThePrimeagen/harpoon' },
+	{'ThePrimeagen/vim-be-good'},
   { 'lewis6991/gitsigns.nvim' },
+  {
+    'christoomey/vim-tmux-navigator',
+    lazy = false,
+  },
   {
     'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
   },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'dinhhuy258/git.nvim' }, -- For git blame & browse
   { 'kyazdani42/nvim-web-devicons' }, -- File icons
   {

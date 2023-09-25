@@ -50,3 +50,8 @@ keymap.set('n', '<C-w><right>', '<C-w>>>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
 
+keymap.set('', '<C-h>', "<Cmd> tmuxnavigateleft<CR>")
+keymap.set('', '<C-l>', "<Cmd> tmuxnavigateright<CR>")
+keymap.set('', '<C-j>', "<Cmd> tmuxnavigateup<CR>")
+keymap.set('', '<C-k>', "<Cmd> TmuxNavigateDown<CR>")
+
