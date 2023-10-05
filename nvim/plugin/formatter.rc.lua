@@ -48,6 +48,14 @@ local function stylua()
   }
 end
 
+local function rustfmt() 
+	 return {
+    exe = "rustfmt",
+    args = { "--edition 2021" },
+    stdin = true,
+  }
+end
+
 formatter.setup({
   -- Enable or disable logging
   logging = true,
@@ -79,6 +87,9 @@ formatter.setup({
       prettierd,
       eslint_d,
     },
+		rust = {
+			rustfmt
+		},
     markdown = {
       prettierd,
       eslint_d,
@@ -128,6 +139,9 @@ formatter.setup({
     },
   },
 })
+
+vim.g.rustfmt_autosave = 1
+
 vim.cmd([[
 augroup FormatOnSave
     autocmd!

@@ -21,8 +21,8 @@ lsp.ensure_installed({
   'tsserver',
   'eslint',
 	'graphql',
-	'marksman'
-  -- 'rust_analyzer'
+	'marksman',
+  'rust_analyzer'
 })
 
 -- Fix Undefined global 'vim'
@@ -56,9 +56,9 @@ lsp.set_preferences({
 })
 
 lsp.set_sign_icons({
-  error = ' ',
-  warn = ' ',
-  hint = ' ',
+  error = ' ',
+  warn = ' ',
+  hint = '󰌶 ',
   info = ' ',
 })
 

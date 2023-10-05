@@ -27,7 +27,7 @@ catppuccin.setup({
     functions = {},
     keywords = {},
     strings = {},
-    variables = {},
+    variables = { 'bold' },
     numbers = {},
     booleans = {},
     properties = {},
@@ -61,7 +61,6 @@ catppuccin.setup({
         background = true,
       },
     },
-
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
