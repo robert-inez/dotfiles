@@ -1,22 +1,15 @@
 local plugins = {
   { 'mhartington/formatter.nvim' },
-  { 'WhoIsSethDaniel/mason-tool-installer.nvim' },
   { 'norcalli/nvim-colorizer.lua' },
   { 'nvim-telescope/telescope.nvim' },
   { 'windwp/nvim-ts-autotag' },
   { 'ThePrimeagen/harpoon' },
-	{'ThePrimeagen/vim-be-good'},
+  { 'ThePrimeagen/vim-be-good' },
   { 'lewis6991/gitsigns.nvim' },
   {
     'christoomey/vim-tmux-navigator',
     lazy = false,
   },
-  {
-    'rebelot/kanagawa.nvim',
-    lazy = false,
-    priority = 1000,
-  },
-  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
   { 'dinhhuy258/git.nvim' }, -- For git blame & browse
   { 'kyazdani42/nvim-web-devicons' }, -- File icons
   {
@@ -35,6 +28,7 @@ local plugins = {
     'folke/todo-comments.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
   },
+  { 'mbbill/undotree' },
   {
     'VonHeikemen/lsp-zero.nvim',
     branch = 'v3.x',
@@ -50,10 +44,18 @@ local plugins = {
       { 'L3MON4D3/LuaSnip' }, -- Required
     },
   },
+  --Themes
   {
     'rose-pine/neovim',
     name = 'rose-pine',
+    priority = 1000,
   },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
+  -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 }
 local opts = {}
 require('lazy').setup(plugins, opts)

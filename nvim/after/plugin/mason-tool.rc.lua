@@ -1,12 +1,1 @@
--- local status, masonTool = pcall(require, 'mason-tool-installer')
--- if not status then
---   return
--- end
---
--- masonTool.setup({
---   ensure_installed = {
---     'typescript-language-server',
---     'prettier',
---     'eslint',
---   },
--- })
+vim.keymap.set('n', '<leader>u', vim.cmd.UndotreeToggle)

@@ -12,7 +12,7 @@ rose_pine.setup({
   dim_nc_background = false,
   disable_background = false,
   disable_float_background = false,
-  disable_italics = false,
+  disable_italics = true,
   --- @usage string hex value or named color from rosepinetheme.com/palette
   groups = {
     background = 'base',
@@ -43,7 +43,7 @@ rose_pine.setup({
   highlight_groups = {
     ColorColumn = { bg = 'rose' },
     -- Blend colours against the "base" background
-    CursorLine = { bg = 'foam', blend = 10 },
+    -- CursorLine = { bg = 'foam', blend = 10 },
     MiniStatuslineModeNormal = { bg = 'foam', fg = 'base' },
     MiniStatuslineModeInsert = { bg = 'love', fg = 'base' },
     MiniStatuslineModeVisual = { bg = 'iris', fg = 'base' },
