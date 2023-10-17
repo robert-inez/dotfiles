@@ -13,52 +13,65 @@ if not status3 then
   return
 end
 
+local status4, mason = pcall(require, 'mason')
+if not status4 then
+  return
+end
+
+local status5, mason_lspconfig = pcall(require, 'mason-lspconfig')
+if not status5 then
+  return
+end
 local keymap = vim.keymap
 
 local lsp = lspzero.preset('recommended')
 
-lsp.ensure_installed({
-  'tsserver',
-  'eslint',
-	'graphql',
-	'marksman',
-  'rust_analyzer'
+mason.setup({})
+mason_lspconfig.setup({
+  ensure_installed = {
+    'tsserver',
+    'eslint',
+    'graphql',
+    'marksman',
+    -- 'rust_analyzer'
+  },
+  handlers = {
+    lspzero.default_setup,
+    lua_ls = function()
+      local lua_opts = lspzero.nvim_lua_ls()
+      lspconfig.lua_ls.setup(lua_opts)
+    end,
+  },
 })
 
--- Fix Undefined global 'vim'
--- lsp.configure('lua-language-server', {
---   settings = {
---     Lua = {
---       diagnostics = {
---         globals = { 'vim' },
---       },
---     },
---   },
--- })
+local cmp_format = require('lsp-zero').cmp_format()
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ['<C-Space>'] = cmp.mapping.complete(),
+
+cmp.setup({
+  formatting = cmp_format,
+  mapping = cmp.mapping.preset.insert({
+    -- scroll up and down the documentation window
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil,
+  }),
 })
 
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
-
-lsp.setup_nvim_cmp({
-  mapping = cmp_mappings,
-})
 
 lsp.set_preferences({
   suggest_lsp_servers = false,
 })
 
 lsp.set_sign_icons({
-  error = ' ',
-  warn = ' ',
-  hint = '󰌶 ',
+  error = ' ',
+  warn = ' ',
+  hint = ' ',
   info = ' ',
 })
 
@@ -96,13 +109,6 @@ lsp.on_attach(function(client, bufnr)
     vim.lsp.buf.signature_help()
   end, opts)
 end)
-
-lspconfig.lua_ls.setup(lsp.nvim_lua_ls())
-lspconfig.eslint.setup({})
-lspconfig.graphql.setup({})
-lspconfig.tsserver.setup({})
-lspconfig.marksman.setup({})
-
 
 lsp.setup()
 

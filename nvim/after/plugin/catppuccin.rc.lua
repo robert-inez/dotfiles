@@ -27,7 +27,7 @@ catppuccin.setup({
     functions = {},
     keywords = {},
     strings = {},
-    variables = { 'bold' },
+    variables = {},
     numbers = {},
     booleans = {},
     properties = {},
@@ -61,9 +61,10 @@ catppuccin.setup({
         background = true,
       },
     },
+
     -- For more plugins integrations please scroll down (https://github.com/catppuccin/nvim#integrations)
   },
 })
 
 -- setup must be called before loading
-vim.cmd('colorscheme catppuccin')
+-- vim.cmd('colorscheme catppuccin')
