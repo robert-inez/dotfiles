@@ -30,9 +30,9 @@ vim.opt.ignorecase = true
 vim.opt.smarttab = true
 vim.opt.breakindent = true
 
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
-vim.bo.tabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.bo.tabstop = 2
 vim.opt.expandtab = true
 
 vim.opt.wrap = false --Wrap lines
