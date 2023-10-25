@@ -22,13 +22,19 @@ keymap.set('n', '<leader>q', '<Cmd>confirm q<CR>')
 
 keymap.set('n', '<leader>f', '<Cmd>Format<CR>')
 
--- keymap.set('n', '<leader>F', '<Cmd>FormatWrite<CR>')
-
 -- Remap buffer stuffs
 keymap.set('n', '<leader>cb', '<Cmd>confirm bd<CR>')
 
 keymap.set('n', 'H', '<Cmd>bprev<CR>')
 keymap.set('n', 'L', '<Cmd>bnext<CR>')
+
+keymap.set('n', '<C-d>', '<C-d>zz')
+keymap.set('n', '<C-u>', '<C-u>zz')
+
+keymap.set('n', 'n', 'nzzzv')
+keymap.set('n', 'N', 'Nzzzv')
+
+keymap.set('x', '<leader>p', '\'_dP')
 
 -- Split window
 keymap.set('n', '<leader>ss', ':split ', {
@@ -45,10 +51,11 @@ keymap.set('', '<C-j>', '<C-w>j')
 keymap.set('', '<C-l>', '<C-w>l')
 
 -- Resize window
-keymap.set('n', '<C-w><left>', '<C-w><<<<')
-keymap.set('n', '<C-w><right>', '<C-w>>>>')
+keymap.set('n', '<C-w><left>', '<C-w><')
+keymap.set('n', '<C-w><right>', '<C-w>>')
 keymap.set('n', '<C-w><up>', '<C-w>+')
 keymap.set('n', '<C-w><down>', '<C-w>-')
+
 
 keymap.set('', '<C-h>', "<Cmd> tmuxnavigateleft<CR>")
 keymap.set('', '<C-l>', "<Cmd> tmuxnavigateright<CR>")

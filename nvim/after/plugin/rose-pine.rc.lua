@@ -12,7 +12,7 @@ rose_pine.setup({
   dim_nc_background = false,
   disable_background = false,
   disable_float_background = false,
-  disable_italics = true,
+  disable_italics = false,
   --- @usage string hex value or named color from rosepinetheme.com/palette
   groups = {
     background = 'base',
@@ -43,7 +43,10 @@ rose_pine.setup({
   highlight_groups = {
     ColorColumn = { bg = 'rose' },
     -- Blend colours against the "base" background
-    -- CursorLine = { bg = 'foam', blend = 10 },
+    --
+    DiagnosticUnderlineError = { undercurl = false, underline = true },
+    DiagnosticUnderlineInfo = { undercurl = false, underline = true },
+    DiagnosticUnderlineWarn = { undercurl = false, underline = true },
     MiniStatuslineModeNormal = { bg = 'foam', fg = 'base' },
     MiniStatuslineModeInsert = { bg = 'love', fg = 'base' },
     MiniStatuslineModeVisual = { bg = 'iris', fg = 'base' },
@@ -52,4 +55,4 @@ rose_pine.setup({
 })
 
 -- Set colorscheme after options
-vim.cmd('colorscheme rose-pine')
+-- vim.cmd('colorscheme rose-pine')

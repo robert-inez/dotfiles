@@ -44,7 +44,7 @@ telescope.setup({
       hidden = true,
       theme = 'ivy',
     },
-    buffers = {
+    diagnostics = {
       theme = 'ivy',
     },
     oldfiles = {
@@ -97,10 +97,10 @@ end)
 vim.keymap.set('n', '<leader>tg', function()
   builtin.grep_string({ search = vim.fn.input('Grep > ') })
 end)
-vim.keymap.set('n', '<leader>tb', function()
-  builtin.buffers()
+vim.keymap.set('n', '<leader>td', function()
+  builtin.diagnostics()
 end)
-vim.keymap.set('n', ';;', function()
+vim.keymap.set('n', '<leader>tr', function()
   builtin.resume()
 end)
 vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
