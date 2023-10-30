@@ -52,22 +52,12 @@ local plugins = {
     dependencies = 'nvim-lua/plenary.nvim',
   },
   { 'norcalli/nvim-colorizer.lua' },
-  -- INFO: Removing as I don't use often
-  -- { 'ThePrimeagen/vim-be-good' },
 
-  --Themes
   {
-    'rose-pine/neovim',
-    name = 'rose-pine',
+    'rebelot/kanagawa.nvim',
     lazy = false,
     priority = 1000,
   },
-  -- {
-  --   'rebelot/kanagawa.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  -- },
-  -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 }
 local opts = {}
 require('lazy').setup(plugins, opts)

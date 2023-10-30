@@ -48,6 +48,13 @@ local function stylua()
   }
 end
 
+local function fish()
+  return {
+    exe = 'fish_indent',
+    stdin = true,
+  }
+end
+
 formatter.setup({
   -- Enable or disable logging
   logging = true,
@@ -55,6 +62,9 @@ formatter.setup({
   log_level = vim.log.levels.WARN,
   -- All formatter configurations are opt-in
   filetype = {
+    fish = {
+      fish,
+    },
     javascript = {
       prettierd,
       eslint_d,

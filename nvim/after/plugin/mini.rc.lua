@@ -3,7 +3,7 @@ if not status1 then
   return
 end
 
-local status2, pair = pcall(require, 'mini.pairs')
+local status2, pairs = pcall(require, 'mini.pairs')
 if not status2 then
   return
 end
@@ -28,7 +28,7 @@ if not status6 then
   return
 end
 
-pair.setup()
+pairs.setup()
 surround.setup()
 bracketed.setup()
 statusline.setup()

@@ -33,7 +33,7 @@ mason_lspconfig.setup({
         'eslint',
         'graphql',
         'marksman',
-        -- 'rust_analyzer'
+        'rust_analyzer'
     },
     handlers = {
         lspzero.default_setup,
@@ -68,9 +68,9 @@ lsp.set_preferences({
 })
 
 lsp.set_sign_icons({
-    error = ' ',
-    warn = ' ',
-    hint = '󰌶 ',
+    error = ' ',
+    warn = ' ',
+    hint = ' ',
     info = ' ',
 })
 
