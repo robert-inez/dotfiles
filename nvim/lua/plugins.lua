@@ -56,16 +56,17 @@ local plugins = {
   -- { 'ThePrimeagen/vim-be-good' },
 
   --Themes
-  -- {
-  --   'rose-pine/neovim',
-  --   name = 'rose-pine',
-  --   priority = 1000,
-  -- },
   {
-    'rebelot/kanagawa.nvim',
+    'rose-pine/neovim',
+    name = 'rose-pine',
     lazy = false,
     priority = 1000,
   },
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  -- },
   -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000 },
 }
 local opts = {}
