@@ -13,7 +13,6 @@ local plugins = {
       { 'neovim/nvim-lspconfig' }, -- Required
       { 'williamboman/mason.nvim' }, -- Optional
       { 'williamboman/mason-lspconfig.nvim' }, -- Optional
-
       -- Autocompletion
       { 'hrsh7th/nvim-cmp' }, -- Required
       { 'hrsh7th/cmp-nvim-lsp' }, -- Required
@@ -41,7 +40,6 @@ local plugins = {
   },
 
   -- Nice to haves
-  { 'windwp/nvim-ts-autotag' },
   { 'kyazdani42/nvim-web-devicons' }, -- File icons
   {
     'echasnovski/mini.nvim',
@@ -51,13 +49,9 @@ local plugins = {
     'folke/todo-comments.nvim',
     dependencies = 'nvim-lua/plenary.nvim',
   },
-  { 'norcalli/nvim-colorizer.lua' },
-
-  {
-    'rebelot/kanagawa.nvim',
-    lazy = false,
-    priority = 1000,
-  },
+  -- { 'norcalli/nvim-colorizer.lua' },
+  { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
+  { 'rose-pine/neovim', name = 'rose-pine', priority = 1000, lazy = false },
 }
 local opts = {}
 require('lazy').setup(plugins, opts)
