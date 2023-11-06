@@ -55,6 +55,27 @@ local function fish()
   }
 end
 
+local function gofumpt()
+  return {
+    exe = 'gofumpt',
+    stdin = true,
+  }
+end
+
+local function goimports()
+  return {
+    exe = 'goimports',
+    stdin = true,
+  }
+end
+
+local function golines()
+  return {
+    exe = 'golines',
+    stdin = true,
+  }
+end
+
 formatter.setup({
   -- Enable or disable logging
   logging = true,
@@ -64,6 +85,11 @@ formatter.setup({
   filetype = {
     fish = {
       fish,
+    },
+    go = {
+      gofumpt,
+      goimports,
+      golines,
     },
     javascript = {
       prettierd,

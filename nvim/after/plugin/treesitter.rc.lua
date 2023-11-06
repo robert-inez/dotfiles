@@ -24,6 +24,7 @@ ts.setup({
     'html',
     'toml',
     'yaml',
+    'go',
   },
   autotag = {
     enable = true,
