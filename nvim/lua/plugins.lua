@@ -51,7 +51,6 @@ local plugins = {
   },
   -- { 'norcalli/nvim-colorizer.lua' },
   { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
-  { 'rose-pine/neovim', name = 'rose-pine', priority = 1000, lazy = false },
 }
 local opts = {}
 require('lazy').setup(plugins, opts)

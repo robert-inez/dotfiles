@@ -34,7 +34,7 @@ mason_lspconfig.setup({
     'graphql',
     'marksman',
     'rust_analyzer',
-    'gopls'
+    'gopls',
   },
   handlers = {
     lspzero.default_setup,
