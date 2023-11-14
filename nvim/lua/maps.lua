@@ -23,7 +23,7 @@ keymap.set('n', '<leader>q', '<Cmd>confirm q<CR>')
 keymap.set('n', '<leader>f', '<Cmd>Format<CR>')
 
 -- Open Ex as buffer
-keymap.set("n", "<leader>tb", vim.cmd.Explore, { desc = "Open NetRW" })
+keymap.set('n', '<leader>tb', vim.cmd.Explore, { desc = 'Open NetRW' })
 
 -- Close buffer
 keymap.set('n', '<leader>cb', '<Cmd>confirm bd<CR>')

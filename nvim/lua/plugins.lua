@@ -29,6 +29,11 @@ local plugins = {
     dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
   },
 
+  -- Debug
+  { 'rcarriga/nvim-dap-ui', dependencies = 'mfussenegger/nvim-dap' },
+  { 'theHamsta/nvim-dap-virtual-text' },
+  { 'leoluz/nvim-dap-go' },
+
   -- Git
   { 'lewis6991/gitsigns.nvim' },
 
