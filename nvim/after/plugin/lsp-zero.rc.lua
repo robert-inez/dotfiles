@@ -31,10 +31,11 @@ mason_lspconfig.setup({
   ensure_installed = {
     'tsserver',
     'eslint',
-    'graphql',
     'marksman',
-    'rust_analyzer',
-    'gopls',
+    'cssls',
+    -- 'graphql',
+    -- 'rust_analyzer',
+    -- 'gopls',
   },
   handlers = {
     lspzero.default_setup,
