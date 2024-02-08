@@ -38,7 +38,8 @@ local plugins = {
   -- { 'leoluz/nvim-dap-go' },
 
   -- Copilot
-  { 'github/copilot.vim' },
+  -- INFO: Really not a fan of some of the things this does
+  -- { 'github/copilot.vim' },
 
   -- Git
   { 'lewis6991/gitsigns.nvim' },
@@ -63,6 +64,7 @@ local plugins = {
   { 'norcalli/nvim-colorizer.lua' },
   -- { 'catppuccin/nvim', name = 'catppuccin', priority = 1000, lazy = false },
   { 'rebelot/kanagawa.nvim', priority = 1000, lazy = false },
+  -- { 'rose-pine/neovim', name = 'rose-pine', priority = 1000, lazy = false },
 }
 local opts = {}
 require('lazy').setup(plugins, opts)

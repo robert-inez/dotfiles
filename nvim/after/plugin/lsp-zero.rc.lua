@@ -30,8 +30,8 @@ mason.setup({})
 mason_lspconfig.setup({
   ensure_installed = {
     'tsserver',
-    'eslint',
-    'marksman',
+    -- 'eslint',
+    -- 'marksman',
     'cssls',
     -- 'graphql',
     -- 'rust_analyzer',
@@ -84,7 +84,7 @@ lsp.on_attach(function(client, bufnr)
   keymap.set('n', 'gD', function()
     vim.lsp.buf.declaration()
   end, opts)
-  keymap.set('n', '<leader>K', function()
+  keymap.set('n', 'K', function()
     vim.lsp.buf.hover()
   end, opts)
   keymap.set('n', '<leader>ws', function()

@@ -6,7 +6,6 @@ end
 ts.setup({
   highlight = {
     enable = true,
-    additional_vim_regex_highlighting = false,
     disable = {},
   },
   indent = {
@@ -18,12 +17,11 @@ ts.setup({
     'javascript',
     'typescript',
     'fish',
-    'graphql',
     'json',
     'css',
     'html',
-    'toml',
     'yaml',
+    'vim',
     'go',
   },
   autotag = {
@@ -32,5 +30,10 @@ ts.setup({
 })
 
 local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
-parser_config.tsx.filetype_to_parsername =
-  { 'javascript', 'typescript.tsx', 'javascriptreact', 'typescript', 'typescriptreact' }
+parser_config.tsx.filetype_to_parsername = {
+  'javascript',
+  'typescript.tsx',
+  -- 'javascriptreact',
+  -- 'typescript',
+  -- 'typescriptreact'
+}
