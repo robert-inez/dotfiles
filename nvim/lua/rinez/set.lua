@@ -8,7 +8,7 @@ vim.opt.termguicolors = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
-vim.opt.hlsearch = false
+vim.opt.hlsearch = true
 vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
@@ -61,3 +61,9 @@ vim.api.nvim_create_autocmd('InsertLeave', {
 
 -- Add asterisks in block comments
 vim.opt.formatoptions:append({ 'r' })
+vim.opt.cursorline = true
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'

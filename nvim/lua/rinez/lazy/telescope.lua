@@ -1,3 +1,8 @@
+return {
+  'nvim-telescope/telescope.nvim',
+  'nvim-telescope/telescope-file-browser.nvim',
+  dependencies = { 'nvim-telescope/telescope.nvim', 'nvim-lua/plenary.nvim' },
+  config = function()
 local status, telescope = pcall(require, 'telescope')
 if not status then
   return
@@ -114,3 +119,5 @@ vim.keymap.set('n', '<leader>tb', function()
     initial_mode = 'normal',
   })
 end)
+  end,
+}

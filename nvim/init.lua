@@ -1,8 +1,4 @@
-require('bootstrap')
-require('base')
-require('highlights')
-require('maps')
-require('plugins')
+require('rinez')
 
 local has = vim.fn.has
 local is_mac = has('macunix')
