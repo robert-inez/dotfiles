@@ -50,7 +50,7 @@ return {
         'cssls',
         -- 'graphql',
         -- 'rust_analyzer',
-        -- 'gopls',
+        'gopls',
       },
       handlers = {
         lspzero.default_setup,
