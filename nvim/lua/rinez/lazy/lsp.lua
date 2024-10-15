@@ -44,7 +44,7 @@ return {
     mason.setup({})
     mason_lspconfig.setup({
       ensure_installed = {
-        'tsserver',
+        'ts_ls',
         'eslint',
         -- 'marksman',
         'cssls',
@@ -114,10 +114,10 @@ return {
       keymap.set('i', '<C-h>', function()
         vim.lsp.buf.signature_help()
       end, opts)
-      keymap.set('n', '[d', function()
+      keymap.set('n', ']d', function()
         vim.diagnostic.goto_next()
       end, opts)
-      keymap.set('n', ']d', function()
+      keymap.set('n', '[d', function()
         vim.diagnostic.goto_prev()
       end, opts)
     end)
