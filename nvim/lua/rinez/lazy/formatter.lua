@@ -95,63 +95,63 @@ return {
           golines,
         },
         javascript = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         typescript = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         javascriptreact = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         typescriptreact = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         ['javascript.jsx'] = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         ['typescript.tsx'] = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         markdown = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         css = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         json = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         jsonc = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         scss = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         less = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         yaml = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         graphql = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         html = {
-          prettierd,
+          -- prettierd,
           eslint_d,
         },
         lua = {
