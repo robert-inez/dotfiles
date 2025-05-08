@@ -1,7 +1,7 @@
 # https://fishshell.com/docs/current/interactive.html#syntax-highlighting-variables
 fish_color_normal dcd7ba
-# fish_color_command 7aa89f
 fish_color_command 76946A
+# fish_color_command 7AA89F
 fish_color_keyword d27e99
 fish_color_quote c0a363
 fish_color_redirection dcd7ba

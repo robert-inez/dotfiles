@@ -1,1 +1,13 @@
-/opt/homebrew/bin/fnm env --use-on-cd | source
+# # fnm
+# set FNM_PATH "/home/rinez/.local/share/fnm"
+# if [ -d "$FNM_PATH" ]
+#   set PATH "$FNM_PATH" $PATH
+# fnm env --use-on-cd | source
+# end
+
+# fnm
+set FNM_PATH "/home/rinez/.local/share/fnm"
+if [ -d "$FNM_PATH" ]
+  set PATH "$FNM_PATH" $PATH
+  fnm env | source
+end
