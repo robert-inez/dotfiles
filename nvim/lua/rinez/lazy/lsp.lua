@@ -40,7 +40,7 @@ return {
         local keymap = vim.keymap
 
         local lsp = lspzero.preset('recommended')
-        
+
         -- lspzero.extend_lspconfig()
         -- local lsp = lspzero
 

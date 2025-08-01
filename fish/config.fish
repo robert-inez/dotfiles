@@ -1,6 +1,5 @@
 set fish_greeting ""
 set fish_function_path $fish_function_path ~/.config/fish/functions
-# set -gx TERM xterm-256color
 
 set -gx EDITOR nvim
 
@@ -11,13 +10,6 @@ set -gx PATH $PATH ~/.cargo/bin
 
 # NodeJS
 set -gx PATH node_modules/.bin $PATH
-
-# if not ssh-add -l | grep -q 'robertinez@Roberts-MacBook-Pro'
-# 	eval (ssh-add)
-# end
-
-# Catppuccin Theme
-# fish_config theme save "Catppuccin Mocha"
 
 alias ls "eza -la --icons"
 alias yss "yarn && yarn start:standalone"
@@ -33,8 +25,6 @@ alias token "curl --request POST \
      --data client_id=oNjjI6L1Q0Q2WIzcNf5SZUOTSHOZFC2w \
      --data client_secret=yQRcPir878olmpe3Tos4IBBT9MR_MKEfIrzyZUz7YBLbZZGT2ZqM4CSjsAQofRnK \
      --data audience=https://crsone-api-dev | jq -r '.access_token' | pbcopy"
-# --header 'content-type: application/json' \
-# alias pbcopy wl-copy
 alias pbcopy 'xclip -selection clipboard'
 alias logdev "echo 'Tailing logs for crsone-server-dev stdout' && aws logs tail /aws/elasticbeanstalk/Crsone-server-env-env/var/log/web.stdout.log --follow --profile crsone-dev"
 alias unit_test "NODE_ENV='unit_test' npm run test"
@@ -54,8 +44,3 @@ direnv hook fish | source
 if status is-interactive
     # Commands to run in interactive sessions can go here
 end
-
-# set -gx GOPATH $HOME/go
-# set -gx GOROOT $HOME/.go
-# set -gx PATH $GOPATH/bin $PATH
-# g-install: do NOT edit, see https://github.com/stefanmaric/g
