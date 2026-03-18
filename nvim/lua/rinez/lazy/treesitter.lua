@@ -27,6 +27,7 @@ return {
                 'yaml',
                 'vim',
                 'go',
+                'templ',
             },
         })
 
