@@ -41,19 +41,14 @@ return {
 
     local lsp = lspzero.preset('recommended')
 
-    -- lspzero.extend_lspconfig()
-    -- local lsp = lspzero
-
     mason.setup({})
     mason_lspconfig.setup({
       ensure_installed = {
         'ts_ls',
         'eslint',
-        -- 'marksman',
         'cssls',
-        -- 'graphql',
-        -- 'rust_analyzer',
         'gopls',
+        -- 'pylsp',
       },
       automatic_installation = true,
       handlers = {
