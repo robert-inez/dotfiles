@@ -38,7 +38,9 @@ return {
 
     pair.setup()
     surround.setup()
-    bracketed.setup()
+    bracketed.setup({
+      diagnostic = { suffix = '', options = {} },
+    })
     statusline.setup()
     comment.setup()
     fuzzy.setup()

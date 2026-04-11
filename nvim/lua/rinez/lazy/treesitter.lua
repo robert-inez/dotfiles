@@ -21,7 +21,8 @@ return {
       ensure_installed = {
         'lua',
         'tsx',
-        -- 'javascript',
+        'markdown',
+        'markdown_inline',
         'typescript',
         'fish',
         'json',

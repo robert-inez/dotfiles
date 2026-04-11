@@ -48,3 +48,9 @@ autocmd('TextYankPost', {
     })
   end,
 })
+
+vim.notify = function(msg, level, opts)
+  if level == vim.log.levels.ERROR then
+    vim.notify_once(debug.traceback(msg, 2), level, opts)
+  end
+end
