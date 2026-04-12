@@ -7,17 +7,11 @@ set -gx PATH bin $PATH
 set -gx PATH ~/bin $PATH
 set -gx PATH ~/.local/bin $PATH
 set -gx PATH $PATH ~/.cargo/bin
-
-# NodeJS
-set -gx PATH node_modules/.bin $PATH
+fish_add_path $HOME/go/bin
+fish_add_path ~/.local/share/bob/nvim-bin
 
 alias ls "eza -la --icons"
-alias yss "yarn && yarn start:standalone"
-alias ob "open /Applications/Obsidian.app"
-alias yd "yarn && ELASTIC_APM_LOG_LEVEL=off yarn dev"
-alias ibdr "cd ~/IB/git/cenari/darwin-root/ && API_URL=http://localhost:1234 ELASTIC_APM_LOG_LEVEL=off yarn dev"
 alias gs "git status"
-alias bump "npm version patch && git add package.json && git commit"
 alias token "curl --request POST \
      --url 'https://crs1-dev.us.auth0.com/oauth/token' \
      --header 'content-type: application/x-www-form-urlencoded' \
@@ -26,16 +20,18 @@ alias token "curl --request POST \
      --data client_secret=yQRcPir878olmpe3Tos4IBBT9MR_MKEfIrzyZUz7YBLbZZGT2ZqM4CSjsAQofRnK \
      --data audience=https://crsone-api-dev | jq -r '.access_token' | pbcopy"
 alias pbcopy 'xclip -selection clipboard'
-alias logdev "echo 'Tailing logs for crsone-server-dev stdout' && aws logs tail /aws/elasticbeanstalk/Crsone-server-env-env/var/log/web.stdout.log --follow --profile crsone-dev"
-alias unit_test "NODE_ENV='unit_test' npm run test"
 alias t tmux
 alias ta "t a -t"
 alias tls "t ls"
 alias tn "t new-session -s"
 alias linkway "ln -s /mnt/wslg/runtime-dir/wayland-0* /run/user/1000/"
-alias update "sudo apt update && sudo apt upgrade"
+alias update "sudo apt update && sudo apt upgrade && sudo snap refresh"
 alias killnvim "pkill -f nvim"
 alias rinvim="reinstall_nvim"
+alias ssh_crs360_qat="ssh -i ~/.ssh/crs1-qa.pem -L 5434:crs360-qat-db-cluster.cluster-crm8jbucghf1.us-east-1.rds.amazonaws.com:5432 ec2-user@3.94.160.94"
+alias ssh_crsone_qat="ssh -i ~/.ssh/crs1-qa.pem -L 5434:crs-one-qat-db-cluster.cluster-crm8jbucghf1.us-east-1.rds.amazonaws.com:5432 ec2-user@3.94.160.94"
+alias ssh_crs360_uat="ssh -i ~/.ssh/crs1-uat.pem -L 5434:crs360-uat-db-cluster.cluster-cgq1dzkiyvf1.us-east-1.rds.amazonaws.com:5432 ec2-user@34.206.54.61"
+alias ssh_crsone_uat="ssh -i ~/.ssh/crs1-uat.pem -L 5434:crs-one-uat-db-cluster.cluster-cgq1dzkiyvf1.us-east-1.rds.amazonaws.com:5432 ec2-user@34.206.54.61"
 
 
 starship init fish | source
