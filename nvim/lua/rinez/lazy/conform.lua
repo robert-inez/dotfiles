@@ -7,7 +7,8 @@ return {
         go = { 'gofumpt', 'goimports', 'golines' },
         templ = { 'templ' },
         markdown = { 'prettierd' },
-        python = { 'black' },
+        nix = { 'alejandra' },
+        python = { 'ruff_format' },
         json = { 'jq' },
         lua = { 'stylua' },
         javascript = { 'eslint_d' },
@@ -32,7 +33,7 @@ return {
         '--quote-style',
         'AutoPreferSingle',
         '--indent-width',
-        vim.bo.tabstop,
+        '2',
       },
     }
 

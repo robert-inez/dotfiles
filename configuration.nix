@@ -1,94 +1,102 @@
-{ config, pkgs, ... }:
-
 {
-  imports = [ ./hardware-configuration.nix ]; # auto-generated during install
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix]; # auto-generated during install
 
   # ── Boot ───────────────────────────────────────────────────────────────────
-  boot.loader.systemd-boot.enable      = true;
+  boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
   # ── Networking ─────────────────────────────────────────────────────────────
-  networking.hostName              = "gaia";
+  networking.hostName = "gaia";
   networking.networkmanager.enable = true;
 
   # ── Locale & timezone ──────────────────────────────────────────────────────
-  time.timeZone      = "America/Denver";
+  time.timeZone = "America/Denver";
   i18n.defaultLocale = "en_US.UTF-8";
 
   # ── Display: GNOME + GDM + Wayland ─────────────────────────────────────────
-  services.xserver = {
-    enable = true;
-    displayManager.gdm = {
-      enable  = true;
-      wayland = true;
-    };
-    desktopManager.gnome.enable = true;
-  };
+  services.xserver.enable = true;
+  services.displayManager.gdm.enable = true;
+  services.displayManager.gdm.wayland = true;
+  services.desktopManager.gnome.enable = true;
+
+  # ── dconf ──────────────────────────────────────────────────────────────────
+  programs.dconf.enable = true;
 
   # ── Audio: PipeWire ────────────────────────────────────────────────────────
-  hardware.pulseaudio.enable = false; # conflicts with PipeWire
-  security.rtkit.enable      = true;  # real-time scheduling for PipeWire
+  services.pulseaudio.enable = false;
+  security.rtkit.enable = true; # real-time scheduling for PipeWire
   services.pipewire = {
-    enable            = true;
-    alsa.enable       = true;
+    enable = true;
+    alsa.enable = true;
     alsa.support32Bit = true;
-    pulse.enable      = true;
+    pulse.enable = true;
   };
 
   # ── Laptop power management ────────────────────────────────────────────────
   # power-profiles-daemon integrates with GNOME power settings UI.
   # Do not enable TLP or auto-cpufreq alongside this — they conflict.
-  services.power-profiles-daemon.enable = true;
-  powerManagement.enable                = true;
+  services."power-profiles-daemon".enable = true;
+  powerManagement.enable = true;
 
   # Firmware updates (fwupdmgr)
   services.fwupd.enable = true;
 
   # ── Bluetooth ──────────────────────────────────────────────────────────────
-  hardware.bluetooth.enable      = true;
+  hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
 
   # ── Swap ───────────────────────────────────────────────────────────────────
   # 2GB swapfile as a safety net — not needed with 32GB RAM but cheap insurance.
   # Lives inside the root partition, no dedicated swap partition required.
-  swapDevices = [{
-    device = "/var/lib/swapfile";
-    size   = 2048;
-  }];
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 2048;
+    }
+  ];
 
   # ── Shell ──────────────────────────────────────────────────────────────────
   # Registers fish as a valid login shell in /etc/shells.
   # Required even though home-manager also enables fish.
   programs.fish.enable = true;
 
+  # ── Minecraft ──────────────────────────────────────────────────────────────
+  programs.java.enable = true;
+
   # ── User ───────────────────────────────────────────────────────────────────
   users.users.rinez = {
     isNormalUser = true;
-    shell        = pkgs.fish;
-    extraGroups  = [ "wheel" "networkmanager" ];
+    shell = pkgs.fish;
+    extraGroups = ["wheel" "networkmanager"];
   };
 
   # ── System packages ────────────────────────────────────────────────────────
   # Keep minimal — user packages live in home.nix.
   environment.systemPackages = with pkgs; [
-    vim   # fallback editor for root sessions before home-manager is active
-    git   # needed by nixos-rebuild --flake
+    vim # fallback editor for root sessions before home-manager is active
+    git # needed by nixos-rebuild --flake
     curl
+    firefox
+    prismlauncher
   ];
 
   # ── Nix settings ───────────────────────────────────────────────────────────
   nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
-    experimental-features = [ "nix-command" "flakes" ];
-    auto-optimise-store   = true;
+    experimental-features = ["nix-command" "flakes"];
+    auto-optimise-store = true;
   };
 
   # Weekly garbage collection — keeps the store from growing unbounded
   nix.gc = {
     automatic = true;
-    dates     = "weekly";
-    options   = "--delete-older-than 30d";
+    dates = "weekly";
+    options = "--delete-older-than 30d";
   };
 
   # ── State version ──────────────────────────────────────────────────────────

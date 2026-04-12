@@ -1,25 +1,23 @@
 return {
   'nvim-treesitter/nvim-treesitter',
-  build = ':TSUpdate',
+  -- build = ':TSUpdate',  ← remove this
   config = function()
     local status, ts = pcall(require, 'nvim-treesitter.configs')
     if not status then
       return
     end
 
-    require('nvim-treesitter.install').compilers = { 'gcc' }
-
     ts.setup({
       highlight = {
         enable = true,
-        disable = {},
+        disable = { 'lua' },
       },
       indent = {
         enable = true,
-        disable = {},
+        disable = { 'lua' },
       },
       ensure_installed = {},
-      auto_install = false
+      auto_install = false,
     })
 
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()

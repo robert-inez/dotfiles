@@ -1,3 +1,5 @@
+require('rinez.treesitter_patch') -- must be first
+
 require('rinez')
 
 local has = vim.fn.has
