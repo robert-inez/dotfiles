@@ -76,10 +76,6 @@ keymap.set('n', '<C-Right>', ':vertical resize +2<CR>', { desc = 'Resize Vertica
 keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move Block Down' })
 keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move Block Up' })
 
-keymap.set('', '<C-h>', '<Cmd> tmuxnavigateleft<CR>')
-keymap.set('', '<C-l>', '<Cmd> tmuxnavigateright<CR>')
-keymap.set('', '<C-j>', '<Cmd> tmuxnavigateup<CR>')
-keymap.set('', '<C-k>', '<Cmd> TmuxNavigateDown<CR>')
 
 keymap.set('n', '<leader><leader>', function()
   vim.cmd('so')
