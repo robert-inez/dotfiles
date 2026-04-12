@@ -10,7 +10,7 @@ in
   home.homeDirectory = "/home/rinez";
 
   # Don't change after initial setup — tracks home-manager state.
-  home.stateVersion = "24.11";
+  home.stateVersion = "25.11";
 
   # ── Packages ───────────────────────────────────────────────────────────────
   # fish, tmux, git, and delta are installed by their programs.* modules below.

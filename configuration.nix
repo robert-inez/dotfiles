@@ -93,5 +93,5 @@
 
   # ── State version ──────────────────────────────────────────────────────────
   # Set to the NixOS release you install with. Do not change after that.
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.11";
 }
