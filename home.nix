@@ -165,7 +165,7 @@ in
 	enable = true;
 	withNodeJs = true;
 	withPython3 = true;
-  }
+  };
 
   # ── Tmux ───────────────────────────────────────────────────────────────────
   # Replaces TPM — plugins are nix-managed, no `prefix + I` on a new machine.
