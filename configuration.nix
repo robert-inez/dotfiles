@@ -48,6 +48,14 @@
   hardware.bluetooth.enable       = true;
   hardware.bluetooth.powerOnBoot  = true;
 
+  # ── Swap ───────────────────────────────────────────────────────────────────
+  # 2GB swapfile as a safety net — not needed with 32GB RAM but cheap insurance.
+  # Lives inside the root partition, no dedicated swap partition required.
+  swapDevices = [{
+    device = "/var/lib/swapfile";
+    size   = 2048;
+  }];
+
   # ── Shell ──────────────────────────────────────────────────────────────────
   # Registers fish as a valid login shell in /etc/shells.
   # Required even though home-manager also enables fish.
