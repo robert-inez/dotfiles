@@ -16,8 +16,8 @@
   in {
 
     # ── NixOS system + home-manager ──────────────────────────────────────────
-    # `sudo nixos-rebuild switch --flake .#nixos` rebuilds both system and user config.
-    # The hostname here must match networking.hostName in configuration.nix.
+    # `sudo nixos-rebuild switch --flake .` auto-resolves by hostname (gaia).
+    # The output name must match networking.hostName in configuration.nix.
     nixosConfigurations.gaia = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
@@ -33,13 +33,16 @@
     };
 
     # ── Standalone home-manager ───────────────────────────────────────────────
-    # Useful for non-NixOS machines or quick testing.
+    # Useful for testing without a full system rebuild.
     # `home-manager switch --flake .#rinez`
     homeConfigurations."rinez" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ ./home.nix ];
     };
 
+    # ── WSL2 home-manager ─────────────────────────────────────────────────────
+    # For work machine running NixOS on WSL2.
+    # `home-manager switch --flake .#rinez-wsl`
     homeConfigurations."rinez-wsl" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
       modules = [ ./home-wsl.nix ];

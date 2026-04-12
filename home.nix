@@ -6,7 +6,7 @@ let
   dotfiles = "${config.home.homeDirectory}/projects/git/dotfiles";
 in
 {
-  home.username    = "rinez";
+  home.username      = "rinez";
   home.homeDirectory = "/home/rinez";
 
   # Don't change after initial setup — tracks home-manager state.
@@ -35,13 +35,17 @@ in
     gum
 
     # HTTP / API
-    xh               # curl-compatible, friendlier syntax
+    xh               # curl-compatible, friendlier syntax for local use
+    jq               # JSON shaping
     fx               # interactive JSON explorer
 
     # Database clients
     pgcli            # Postgres
     litecli          # SQLite
     usql             # universal fallback
+
+    # Git
+    tig              # terminal git browser
 
     # Cloud
     awscli2
@@ -52,12 +56,13 @@ in
     bat              # cat with syntax highlighting
     zoxide           # frecency-based cd
 
-    # Notes / zettelkasten
+    # Clipboard — Wayland native
+    wl-clipboard     # provides wl-copy and wl-paste
+
+    # Notes
     zk               # CLI-first note manager with neovim LSP
 
     # Utilities
-    jq
-    wl-clipboard
     curl
     wget
 
@@ -66,7 +71,6 @@ in
   ];
 
   # ── Environment ────────────────────────────────────────────────────────────
-  # Declared here so all programs see them, not just fish.
   home.sessionVariables = {
     EDITOR = "nvim";
     VISUAL = "nvim";
@@ -99,7 +103,6 @@ in
   };
 
   # ── SSH ────────────────────────────────────────────────────────────────────
-  # Hosts used by fish/functions/wt-init.fish and wt-add.fish.
   programs.ssh = {
     enable = true;
     matchBlocks = {
@@ -117,22 +120,20 @@ in
   };
 
   # ── Direnv ─────────────────────────────────────────────────────────────────
-  # nix-direnv caches nix shells so they don't rebuild on every cd.
+  # nix-direnv caches nix shells so they don't rebuild on every cd
   programs.direnv = {
-    enable = true;
+    enable            = true;
     nix-direnv.enable = true;
   };
 
   # ── Fish ───────────────────────────────────────────────────────────────────
-  # programs.fish manages ~/.config/fish/config.fish — the file in the repo
-  # (fish/config.fish) is no longer active. Functions, plugins, and work conf.d
-  # are still sourced from the repo via xdg.configFile below.
   programs.fish = {
     enable = true;
     shellAliases = {
       ls       = "eza -la --icons";
       gs       = "git status";
-      pbcopy   = "wl-copy";
+      pbcopy   = "wl-copy";    # Wayland clipboard
+      pbpaste  = "wl-paste";   # Wayland clipboard
       t        = "tmux";
       ta       = "t a -t";
       tls      = "t ls";
@@ -148,11 +149,10 @@ in
   };
 
   # ── Tmux ───────────────────────────────────────────────────────────────────
-  # Replaces TPM — plugins are nix-managed, no `prefix + I` step on a new machine.
-  # tmux-ukiyo (a catppuccin wrapper) replaced by tmuxPlugins.catppuccin directly.
+  # Replaces TPM — plugins are nix-managed, no `prefix + I` on a new machine.
   programs.tmux = {
     enable       = true;
-    shortcut     = "a";        # sets prefix to C-a
+    shortcut     = "a";        # prefix = C-a
     baseIndex    = 1;
     mouse        = true;
     historyLimit = 10001;
@@ -227,26 +227,21 @@ in
   fonts.fontconfig.enable = true;
 
   # ── Config symlinks ────────────────────────────────────────────────────────
-  # fish and tmux are managed by programs.* above — no symlinks needed for those.
-  # nvim and alacritty are symlinked from the live repo so edits are immediate.
-  # Fish subdirectories (functions, plugins, work conf.d) are linked individually.
-  #
-  # Before first `home-manager switch` on a new machine, remove any pre-existing
-  # config directories to avoid conflicts:
-  #   rm -rf ~/.config/nvim ~/.config/alacritty
+  # nvim and alacritty symlinked from live repo — edits reflect immediately.
+  # fish and tmux managed by programs.* above — no symlinks needed for those.
   xdg.configFile = {
     "nvim".source      = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/nvim";
     "alacritty".source = config.lib.file.mkOutOfStoreSymlink "${dotfiles}/alacritty";
 
-    # Custom fish functions (worktree helpers, ghpr, pom, etc.)
+    # Custom fish functions
     "fish/functions".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/functions";
 
-    # Fisher plugin list — run `fisher update` on first fish launch to install themes
+    # Fisher plugin list
     "fish/fish_plugins".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/fish_plugins";
 
-    # Work-specific reviewer handles used by ghpr.fish
+    # Work-specific reviewer handles
     "fish/conf.d/reviewers.fish".source =
       config.lib.file.mkOutOfStoreSymlink "${dotfiles}/fish/conf.d/reviewers.fish";
   };

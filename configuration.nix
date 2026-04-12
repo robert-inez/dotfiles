@@ -36,7 +36,7 @@
   };
 
   # ── Laptop power management ────────────────────────────────────────────────
-  # power-profiles-daemon integrates with the GNOME power settings UI.
+  # power-profiles-daemon integrates with GNOME power settings UI.
   # Do not enable TLP or auto-cpufreq alongside this — they conflict.
   services.power-profiles-daemon.enable = true;
   powerManagement.enable                = true;
@@ -45,8 +45,8 @@
   services.fwupd.enable = true;
 
   # ── Bluetooth ──────────────────────────────────────────────────────────────
-  hardware.bluetooth.enable       = true;
-  hardware.bluetooth.powerOnBoot  = true;
+  hardware.bluetooth.enable      = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # ── Swap ───────────────────────────────────────────────────────────────────
   # 2GB swapfile as a safety net — not needed with 32GB RAM but cheap insurance.
@@ -69,7 +69,7 @@
   };
 
   # ── System packages ────────────────────────────────────────────────────────
-  # Keep this minimal — user packages live in home.nix.
+  # Keep minimal — user packages live in home.nix.
   environment.systemPackages = with pkgs; [
     vim   # fallback editor for root sessions before home-manager is active
     git   # needed by nixos-rebuild --flake
@@ -77,7 +77,7 @@
   ];
 
   # ── Nix settings ───────────────────────────────────────────────────────────
-  nixpkgs.config.allowUnfree = true; # required for awscli2, google-cloud-sdk, etc.
+  nixpkgs.config.allowUnfree = true;
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
