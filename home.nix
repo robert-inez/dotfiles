@@ -24,9 +24,6 @@ in
     ripgrep
     fd
 
-    # Editor
-    neovim
-
     # Dev tools
     gcc
     gnumake
@@ -65,6 +62,22 @@ in
     # Utilities
     curl
     wget
+
+    (pkgs.vimPlugins.nvim-treesitter.withPlugins (p: [
+	p.lua
+	p.tsx
+	p.markdown
+	p.markdown_inline
+	p.typescript
+	p.fish
+	p.json
+	p.css
+	p.html
+	p.yaml
+	p.vim
+	p.go
+	p.templ
+    ]))
 
     # Fonts
     (nerdfonts.override { fonts = [ "CascadiaCode" ]; })
@@ -147,6 +160,12 @@ in
       zoxide init fish | source
     '';
   };
+
+  programs.neovim = {
+	enable = true;
+	withNodeJs = true;
+	withPython3 = true;
+  }
 
   # ── Tmux ───────────────────────────────────────────────────────────────────
   # Replaces TPM — plugins are nix-managed, no `prefix + I` on a new machine.

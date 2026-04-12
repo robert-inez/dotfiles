@@ -18,21 +18,8 @@ return {
         enable = true,
         disable = {},
       },
-      ensure_installed = {
-        'lua',
-        'tsx',
-        'markdown',
-        'markdown_inline',
-        'typescript',
-        'fish',
-        'json',
-        'css',
-        'html',
-        'yaml',
-        'vim',
-        'go',
-        'templ',
-      },
+      ensure_installed = {},
+      auto_install = false
     })
 
     local parser_config = require('nvim-treesitter.parsers').get_parser_configs()
