@@ -69,6 +69,9 @@ in {
     # Notes
     zk # CLI-first note manager with neovim LSP
 
+    #AI
+    claude-code
+
     # Utilities
     curl
     wget
