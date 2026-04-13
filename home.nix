@@ -63,6 +63,9 @@ in {
     # Clipboard — Wayland native
     wl-clipboard # provides wl-copy and wl-paste
 
+    # AI
+    claude-code
+
     # Notes
     zk # CLI-first note manager with neovim LSP
 

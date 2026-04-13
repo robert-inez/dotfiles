@@ -7,7 +7,7 @@
   imports = [./home.nix];
 
   # ── Extra WSL2 packages ────────────────────────────────────────────────────
-  home.packages = with pkgs; [wslu];
+  home.packages = with pkgs; [wslu hyperfine];
 
   # ── No GNOME in WSL2 ───────────────────────────────────────────────────────
   dconf.settings = lib.mkForce {};
