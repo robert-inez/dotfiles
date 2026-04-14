@@ -1,0 +1,36 @@
+[note]
+filename = "{{slug title}}"
+extension = "md"
+template = "default.md"
+id-charset = "alphanum"
+id-length = 4
+id-case = "lower"
+
+[tool]
+shell = "fish"
+editor = "nvim"
+pager = "bat --style plain"
+fzf-preview = "bat --color always {1}"
+
+[format.markdown]
+link-format = "wiki"
+
+[filter]
+recents = "--sort created- --created-after 'last two weeks'"
+
+# ── Aliases ────────────────────────────────────────────────────────────────
+
+[alias]
+daily    = "zk new --title '{{format-date now \"%Y%m%d\"}}' --template daily.md"
+bug      = "zk new --template bug.md --title $argv"
+feature  = "zk new --template feature.md --title $argv"
+decision = "zk new --template decision.md --title $argv"
+learning = "zk new --template learning.md --title $argv"
+permanent = "zk new --template permanent.md --title $argv"
+
+recent   = "zk list --sort created- --created-after 'last two weeks'"
+today    = "zk list --created-after 'today'"
+inbox    = "zk list --tag 'inbox'"
+
+ed = "zk edit --interactive $argv"
+ls = "zk list $argv"

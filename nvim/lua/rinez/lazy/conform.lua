@@ -6,7 +6,7 @@ return {
         fish = { 'fish_indent' },
         go = { 'gofumpt', 'goimports', 'golines' },
         templ = { 'templ' },
-        markdown = { 'prettierd' },
+        -- markdown = { 'prettierd' },
         nix = { 'alejandra' },
         python = { 'ruff_format' },
         json = { 'jq' },
