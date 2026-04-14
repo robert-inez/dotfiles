@@ -7,7 +7,7 @@
   imports = [./home.nix];
 
   # ── Extra WSL2 packages ────────────────────────────────────────────────────
-  home.packages = with pkgs; [wslu hyperfine];
+  home.packages = with pkgs; [wslu];
 
   # ── No GNOME in WSL2 ───────────────────────────────────────────────────────
   dconf.settings = lib.mkForce {};
@@ -21,6 +21,15 @@
     "fish/config.fish".text = ''
       set fish_greeting ""
       source ~/.nix-profile/etc/profile.d/hm-session-vars.fish
+
+      # Auto-install fisher plugins on first launch
+      if not functions -q fisher
+        curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
+        fisher install jorgebucaran/fisher
+        fisher update
+      end
+
+      fish_config theme choose catppuccin-mocha
 
       alias ls="eza -la --icons"
       alias gs="git status"
