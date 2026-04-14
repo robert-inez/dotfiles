@@ -50,6 +50,10 @@
       config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/projects/git/dotfiles/nvim";
 
+    "tmux/tmux.conf".source =
+      config.lib.file.mkOutOfStoreSymlink
+      "${config.home.homeDirectory}/projects/git/dotfiles/tmux/tmux.conf";
+
     "fish/functions".source =
       config.lib.file.mkOutOfStoreSymlink
       "${config.home.homeDirectory}/projects/git/dotfiles/fish/functions";
