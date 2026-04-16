@@ -6,8 +6,9 @@ return {
         fish = { 'fish_indent' },
         go = { 'gofumpt', 'goimports', 'golines' },
         templ = { 'templ' },
-        markdown = { 'prettierd' },
-        python = { 'black' },
+        -- markdown = { 'prettierd' },
+        nix = { 'alejandra' },
+        python = { 'ruff_format' },
         json = { 'jq' },
         lua = { 'stylua' },
         javascript = { 'eslint_d' },
@@ -32,7 +33,7 @@ return {
         '--quote-style',
         'AutoPreferSingle',
         '--indent-width',
-        vim.bo.tabstop,
+        '2',
       },
     }
 
