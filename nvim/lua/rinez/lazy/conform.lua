@@ -6,7 +6,6 @@ return {
         fish = { 'fish_indent' },
         go = { 'gofumpt', 'goimports', 'golines' },
         templ = { 'templ' },
-        -- markdown = { 'prettierd' },
         nix = { 'alejandra' },
         python = { 'ruff_format' },
         json = { 'jq' },
@@ -17,13 +16,22 @@ return {
         typescriptreact = { 'eslint_d' },
         jsonc = { 'eslint_d' },
       },
-      format_on_save = {
-        timeout_ms = 1000,
-        lsp_fallback = true,
-      },
+
+      -- Skip formatting if buffer has LSP errors — prevents formatter crashes
+      -- on syntax errors in any language
+      format_on_save = function(bufnr)
+        local errors = vim.diagnostic.get(bufnr, { severity = vim.diagnostic.severity.ERROR })
+        if #errors > 0 then
+          return nil -- skip formatting, buffer has errors
+        end
+        return {
+          timeout_ms = 1000,
+          lsp_fallback = true,
+        }
+      end,
     })
 
-    -- Your stylua custom args
+    -- stylua custom args
     require('conform').formatters.stylua = {
       prepend_args = {
         '--indent-type',
@@ -37,7 +45,7 @@ return {
       },
     }
 
-    -- Your templ custom args
+    -- templ custom args
     require('conform').formatters.templ = {
       args = { 'fmt', '-stdin-filepath', '$FILENAME' },
       stdin = true,

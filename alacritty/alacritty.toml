@@ -89,8 +89,7 @@ unfocused_hollow = true       # hollow cursor when window loses focus
 # ─── Terminal ─────────────────────────────────────────────────────────────────
 
 [terminal]
-shell = { program = "/etc/profiles/per-user/rinez/bin/fish", args = [] }
-# Nix: programs.alacritty.settings.terminal.shell.program = pkgs.fish + "/bin/fish"
+shell = { program = "/usr/bin/fish", args = [] }
 
 # ─── Keyboard ─────────────────────────────────────────────────────────────────
 # Minimal — let tmux handle splits, windows, sessions
