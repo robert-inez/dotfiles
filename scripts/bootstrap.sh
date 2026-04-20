@@ -57,7 +57,7 @@ echo ""
 
 # ── Run scripts in order ────────────────────────────────────────────────────
 log "Step 1/8 — System packages"
-bash "$SCRIPT_DIR/install-apt.sh"
+bash "$SCRIPT_DIR/install-packages.sh"
 
 log "Step 2/8 — Rust + cargo tools"
 bash "$SCRIPT_DIR/install-cargo.sh"

@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # install-asdf.sh — asdf version manager, Go and Node runtimes
-# Python is handled by system package manager (dnf/apt) not asdf
+# Python handled by system package manager — Ubuntu 22.04+ and Tumbleweed
+# both ship recent Python (3.11+) so asdf Python is never needed
 set -euo pipefail
 
 GREEN='\033[0;32m'; BLUE='\033[0;34m'; NC='\033[0m'
@@ -8,7 +9,6 @@ log()     { echo -e "${BLUE}  ->${NC} $1"; }
 success() { echo -e "${GREEN}  ✓${NC} $1"; }
 
 ASDF_DIR="$HOME/.asdf"
-OS="${OS:-$(. /etc/os-release && echo $ID)}"
 
 # ── Install asdf ─────────────────────────────────────────────────────────────
 if [ -d "$ASDF_DIR" ]; then
@@ -44,11 +44,13 @@ asdf global nodejs lts
 success "Node $(node --version)"
 
 # ── Python ───────────────────────────────────────────────────────────────────
-# Fedora ships recent Python via dnf — no need to compile via asdf
-# Ubuntu installs python3 via apt in install-apt.sh
-# Only use asdf Python if system Python is missing or too old
+# System Python is sufficient on all supported distros:
+# - Ubuntu 22.04+ ships Python 3.10+
+# - Ubuntu 24.04 ships Python 3.12
+# - Tumbleweed ships latest stable Python
+# asdf Python only needed if system Python is missing entirely
 if command -v python3 &>/dev/null; then
-  log "Python already available: $(python3 --version) — skipping asdf Python"
+  success "Python $(python3 --version) — using system Python"
 else
   log "System Python not found — installing via asdf..."
   asdf plugin add python 2>/dev/null || true
