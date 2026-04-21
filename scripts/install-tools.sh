@@ -55,30 +55,38 @@ else
 fi
 
 # ── pip tools ────────────────────────────────────────────────────────────────
-# Terminal database clients only — formatters handled by Mason
-PIP=$(command -v pip3 2>/dev/null || command -v pip 2>/dev/null || echo "")
+# Use pipx for CLI tools — required on Tumbleweed (PEP 668 protected Python)
+# pgcli and litecli are terminal tools not libraries so pipx is correct
 
-if [ -n "$PIP" ]; then
-  log "Installing pip tools..."
+OS="${OS:-$(. /etc/os-release && echo $ID)}"
 
-  PIP_TOOLS=(
-    pgcli    # Postgres interactive client
-    litecli  # SQLite interactive client
-  )
-
-  for tool in "${PIP_TOOLS[@]}"; do
-    if command -v "$tool" &>/dev/null; then
-      log "$tool already installed, skipping"
-    else
-      log "Installing $tool..."
-      $PIP install --user "$tool"
-    fi
-  done
-
-  success "pip tools installed"
-else
-  warn "pip not found — skipping pip tools"
+# Install pipx if not present
+if ! command -v pipx &>/dev/null; then
+  log "Installing pipx..."
+  case "$OS" in
+    opensuse*) sudo zypper install -y python313-pipx ;;
+    ubuntu|debian) sudo apt install -y pipx ;;
+    *) pip3 install --user pipx ;;
+  esac
 fi
+
+log "Installing pip tools via pipx..."
+
+PIPX_TOOLS=(
+  pgcli    # Postgres interactive client
+  litecli  # SQLite interactive client
+)
+
+for tool in "${PIPX_TOOLS[@]}"; do
+  if command -v "$tool" &>/dev/null; then
+    log "$tool already installed, skipping"
+  else
+    log "Installing $tool..."
+    pipx install "$tool"
+  fi
+done
+
+success "pip tools installed"
 
 # ── Starship ─────────────────────────────────────────────────────────────────
 if command -v starship &>/dev/null; then

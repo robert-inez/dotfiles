@@ -42,7 +42,7 @@ ZYPPER_PACKAGES=(
   # needed for cargo crates using bindgen
   llvm-devel libclang13
   # Python — Tumbleweed ships recent Python, no asdf needed
-  python3 python3-pip python3-venv
+  python3 python3-pip python3-virtualenv python313-pipx
   # shell
   fish tmux
   # search and navigation
@@ -85,20 +85,20 @@ install_ubuntu() {
 
 install_tumbleweed() {
   log "Refreshing zypper repos..."
-  sudo zypper refresh -y
+  sudo zypper refresh
 
   log "Updating system..."
-  sudo zypper update -y
+  sudo zypper update
 
   log "Installing packages..."
-  sudo zypper install -y "${ZYPPER_PACKAGES[@]}"
+  sudo zypper install "${ZYPPER_PACKAGES[@]}"
 
   # clipboard
   if [ -n "${WAYLAND_DISPLAY:-}" ] || [ "${XDG_SESSION_TYPE:-}" = "wayland" ]; then
-    sudo zypper install -y wl-clipboard
+    sudo zypper install wl-clipboard
     log "Installed wl-clipboard (Wayland)"
   else
-    sudo zypper install -y xclip
+    sudo zypper install xclip
     log "Installed xclip (X11)"
   fi
 
@@ -107,8 +107,8 @@ install_tumbleweed() {
   sudo zypper addrepo -cfp 90 \
     https://ftp.gwdg.de/pub/linux/misc/packman/suse/openSUSE_Tumbleweed/ \
     packman 2>/dev/null || log "Packman repo already enabled"
-  sudo zypper refresh -y
-  sudo zypper dist-upgrade --from packman --allow-vendor-change -y 2>/dev/null || true
+  sudo zypper refresh
+  sudo zypper dist-upgrade --from packman --allow-vendor-change 2>/dev/null || true
 
   success "Packages installed"
 }
